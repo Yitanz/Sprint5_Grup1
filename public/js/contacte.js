@@ -42,7 +42,7 @@ const InputForm = {
   methods: {
     submitForm(evt) {
       evt.preventDefault();
-      
+
       this.fieldErrors = this.validateForm(this.fields);
       if (Object.keys(this.fieldErrors).length) return;
 
