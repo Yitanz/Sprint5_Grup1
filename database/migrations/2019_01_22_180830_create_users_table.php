@@ -26,9 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('ciutat');
             $table->string('provincia');
             $table->string('codi_postal');
-            $table->enum('tipus_document', ['DNI','NIE']);
+            $table->string('tipus_document');
             $table->string('numero_document');
-            $table->enum('sexe', ['Home','Dona']);
+            $table->string('sexe');
             $table->string('telefon');
             $table->unsignedInteger('id_rol');
             $table->foreign('id_rol')->references('id')->on('rols');
