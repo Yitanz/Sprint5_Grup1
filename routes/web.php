@@ -32,6 +32,8 @@
  Route::any('/restaurant', 'HomeController@tenda_burger')->name('restaurant');
  Route::any('/restaurant/compra', 'HomeController@burger_comprar')->name('restaurant.compra');
 
+//guardar CONTACTE
+ Route::post('/contacte', 'ContacteController@store' );
 
 
 

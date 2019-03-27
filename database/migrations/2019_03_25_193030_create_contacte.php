@@ -19,7 +19,7 @@ class CreateContacte extends Migration
             $table->string('email');
             $table->string('tipus_pregunta');
             $table->string('missatge');
-            $table->string('estat');
+            $table->boolean('estat');
             $table->timestamps();
         });
     }
