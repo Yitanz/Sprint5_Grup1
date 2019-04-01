@@ -6,42 +6,12 @@
 @endsection
 @section("content")
 
-<script>
-function post()
-{
-  var nom = document.getElementByID("nom").value;
-  var email = document.getElementByID("email").value;
-  var opcio = document.getElementByID("opcio").value;
-  var consulta = document.getElementByID("consulta").value;
-
-  if( nom && email && opcio && consulta )
-  {
-    $.ajax
-    ({
-      type: 'post',
-      url:  'post_data.php',
-      data:
-      {
-        user_nom:nom,
-        user_email:email,
-        user_opcio:opcio,
-        user_consulta:consulta
-      },
-      success: function (response)
-      {
-        document.getElementByID("status").innerHTML="Consulta enviada correctament";;
-      }
-    });
-  }
-  return false
-}
-</script>
-
 <!-- CONTACTE -->
 <div id="app" class="container jumbotron mt-3">
   <div class="row">
       <div class="col-sm-12">
-        <form method="post" action="" onsubmit="return post();">
+        <form method="post" action="{{action('ContacteController@store')}}">
+          @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Nom</label>
             <input type="text" name="nom" class="form-control" id="nom" aria-describedby="nameHelp" placeholder="Introdueix el nom">
@@ -54,11 +24,11 @@ function post()
             <label for="exampleInputEmail1">Opcions</label>
             <select class="custom-select" name="opcio" id="opcio">
               <option value="" disabled selected>Selcciona una opcio</option>
-              <option value="1">Entrades</option>
-              <option value="2">Botiga</option>
-              <option value="3">Horaris</option>
-              <option value="4">Devolucions</option>
-              <option value="5">Comandes</option>
+              <option value="Entrades">Entrades</option>
+              <option value="Botiga">Botiga</option>
+              <option value="Horaris">Horaris</option>
+              <option value="Devolucions">Devolucions</option>
+              <option value="Comandes">Comandes</option>
             </select>
           </div>
           <div class="form-group">

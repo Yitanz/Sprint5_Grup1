@@ -326,7 +326,7 @@ class HomeController extends Controller
                 'producte' => $element_cistella->producte,
                 'quantitat' => $element_cistella->quantitat
         ]);
-        
+
         $linia_venta ->save();
         $linia_cistella_element = Linia_cistella::find($element_cistella->id_linia);
         $linia_cistella_element->delete();
@@ -529,5 +529,10 @@ class HomeController extends Controller
     }
     public function burger_comprar(){
       return view('restaurant/compra');
+    }
+
+
+    public function notificacionsGeneral(){
+      return view('notificacions');
     }
 }

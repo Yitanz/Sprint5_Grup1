@@ -33,7 +33,7 @@
  Route::any('/restaurant/compra', 'HomeController@burger_comprar')->name('restaurant.compra');
 
 //guardar CONTACTE
- Route::post('/contacte', 'ContacteController@store' );
+ Route::post('/contacte', 'ContacteController@store' )->name('contacte2');
 
 
 
@@ -64,6 +64,8 @@
 
  Route::resource('/gestio/promocions', 'PromocionsController')->middleware(['auth','is_admin','verified']);
 
+ Route::resource('/gestio/ticket', 'ContacteController')->middleware(['auth','is_admin','verified']);
+
  Route::get('/view/incidencies/assign', 'IncidenciesController@assignadesGuardarPDF')->middleware(['auth','is_admin','verified']);
 
  Route::get('/votacions',"HomeController@votacions")->name('votacions');
@@ -72,7 +74,10 @@
 
  Route::get('/tasques','HomeController@tasques')->name('tasques')->middleware(['auth','is_worker','verified']);
 
+ Route::get('/notificacions', 'HomeController@notificacionsGeneral')->name('notificacions')->middleware(['auth','is_worker','verified']);
+
  Route::patch('/tasques/{id}', 'IncidenciesController@conclude')->name('incidencies.conclude')->middleware(['auth','is_worker','verified']);
+
 
  /* RUTES GRUP 2 */
  Route::any('/gestio/atraccions/crearassignaciomantenimentdate/{id}','AtraccionsController@crearAssignacioMantenimentDate')->name('atraccions.crearassignaciomantenimentdate')->middleware(['auth','is_admin','verified']);

@@ -23,7 +23,7 @@
             @endif
 
             @elseif(Auth::user()->id_rol !== 1 && Auth::user()->id_rol !== 2)
-            
+
             <li class="nav-item dropdown">
                 @if(Auth::user()->unreadNotifications->count() !== 0)
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -42,9 +42,9 @@
                         </form>
                     </li>
                     @endforeach
-                    
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @else
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -53,11 +53,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @endif
             </li>
-            
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nom }} {{ Auth::user()->cognom1 }}</a>
@@ -97,9 +97,9 @@
                         </form>
                     </li>
                     @endforeach
-                    
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @else
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -108,7 +108,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @endif
             </li>
@@ -134,7 +134,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             @elseif(Auth::user()->id_rol == 1)
             <li class="nav-item dropdown">
                 @if(Auth::user()->unreadNotifications->count() !== 0)
@@ -154,9 +154,9 @@
                         </form>
                     </li>
                     @endforeach
-                    
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @else
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -165,11 +165,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Mostrar notificacions</a>
+                    <a class="dropdown-item" href="{{ route('notificacions') }}">Mostrar notificacions</a>
                 </ul>
                 @endif
             </li>
-            
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nom }} {{ Auth::user()->cognom1 }}</a>
