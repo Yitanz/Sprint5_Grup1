@@ -7,24 +7,43 @@ use App\Contacte;
 
 class ContacteController extends Controller
 {
+  public function index()
+  {
+
+    $ticket = Contacte::where('id_estat', 1)
+    ->join('estat_incidencies','estat_incidencies.id','contacte.id_estat')
+    ->get([
+      'contacte.nom as nom',
+      'contacte.email as email',
+      'contacte.tipus_pregunta as pregunta',
+      'contacte.missatge as missatge',
+      'estat_incidencies.nom_estat as nom_estat'
+    ]);
+
+    return view('gestio/ticket/index', compact('ticket'));
+
+  }
+
   public function store(Request $request)
   {
-      $request->validate([
-          'nom' => ['required', 'string', 'max:255'],
-          'email' => ['required', 'string', 'email', 'max:255'],
-          'tipus_pregunta' => ['required', 'string', 'min:6'],
-          'missatge' => ['required', 'string'],
-      ]);
 
       $contacte = new Contacte ([
           'nom' => $request->get('nom'),
           'email' => $request->get('email'),
           'tipus_pregunta' => $request->get('opcio'),
           'missatge' => $request->get('consulta'),
-          'estat' => 1,
+          'id_estat' => 1,
       ]);
 
       $contacte->save();
 
+      return redirect('/contacte')->with('success', 'Contacte enviat correctament');
   }
+
+
+  public function show()
+  {
+
+  }
+
 }

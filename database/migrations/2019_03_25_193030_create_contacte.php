@@ -17,10 +17,12 @@ class CreateContacte extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('email');
-            $table->string('tipus_pregunta');
+            $table->enum('tipus_pregunta', ['Entrades','Botiga','Horaris', 'Devolucions', 'Comandes']);
             $table->string('missatge');
-            $table->boolean('estat');
-            $table->timestamps();
+            $table->unsignedInteger('id_estat');
+            $table->foreign('id_estat')->references('id')->on('estat_incidencies');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
