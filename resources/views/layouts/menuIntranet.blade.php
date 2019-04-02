@@ -236,6 +236,19 @@
           </ul>
 
 
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('ticket*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('ticket*') ? 'true' : 'false' }}" href="#submenu13">
+              <span data-feather="trending-down"></span>
+              Tickets/Consultes
+              <span data-feather="chevron-right"></span>
+            </a>
+          </li>
+          <ul class="nav flex-column collapse {{ request()->routeIs('ticket*') ? 'show' : '' }}" id="submenu13" data-parent="#sidebar">
+            <li class="nav-item">
+              <a class="nav-link nav-interior {{ request()->routeIs('ticket.index') ? 'active' : '' }}" href="{{URL::route('ticket.index')}}"><span data-feather="file-text"></span>Llistar Tickets</a>
+            </li>
+          </ul>
+
         </ul>
       </div>
     </nav>

@@ -43,6 +43,7 @@
                 <td>{{$tickets->missatge}}</td>
                 <td>{{$tickets->nom_estat}}</td>
                 <td>
+                    <a href="{{ route('ticket.assign', $tickets->id) }}" class="btn btn-primary btn-sm">Assignar</a>
                 </td>
             </tr>
             @endforeach
