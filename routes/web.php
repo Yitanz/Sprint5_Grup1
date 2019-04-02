@@ -36,9 +36,8 @@
  Route::post('/contacte', 'ContacteController@store' )->name('contacte2');
 
  //gestio ticket/dubtes/contacte
- Route::any('gestio/ticket/{id}', 'ContacteController@assign')->name('ticket.assign')->middleware(['auth','is_admin','verified']);
- //fer aixo en ajax no de esta forma :X
- Route::any('gestio/ticket/{id}/empleat', 'ContacteController@assign')->name('ticket.crearAssignacioTicket')->middleware(['auth','is_admin','verified']);
+ Route::get('gestio/ticket/{id}', 'ContacteController@llistarEmpleats')->name('ticket.assign')->middleware(['auth','is_admin','verified']);
+
 
 
 
