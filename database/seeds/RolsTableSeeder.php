@@ -30,5 +30,9 @@ class RolsTableSeeder extends Seeder
         DB::table('rols')->insert([
             'nom_rol' => 'Treballador General'
         ]);
+
+        DB::table('rols')->insert([
+            'nom_rol' => 'Atencio al client'
+        ]);
     }
 }

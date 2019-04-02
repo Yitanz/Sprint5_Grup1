@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contacte;
+use App\User;
 
 class ContacteController extends Controller
 {
@@ -47,6 +48,15 @@ class ContacteController extends Controller
     $ticket = Contacte::find($id);
 
     return view('/gestio/ticket/assign', compact('ticket'));
+  }
+
+  public function llistarEmpleats()
+  {
+    $user = User::where('id_rol', 6)
+    ->get([
+      
+    ]);
+
   }
 
 }
