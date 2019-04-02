@@ -85,6 +85,7 @@ class ContacteController extends Controller
     ->join('users AS us', 'linia_contacte.id_empleat', 'us.id')
     ->join('estat_incidencies','estat_incidencies.id','con.id_estat')
     ->get([
+      'linia_contacte.id as id',
       'us.nom as nom_empleat',
       'con.email as email',
       'con.tipus_pregunta as pregunta',
@@ -93,5 +94,17 @@ class ContacteController extends Controller
     ]);
     
     return view('/gestio/ticket/list', compact('linia'));
+  }
+
+  public function destroy($id)
+  {
+      $linia = Linia_Contacte::find($id);
+      $linia->delete();
+      return redirect('/gestio/ticket/list')->with('success', 'ticket suprimida correctament');
+
+  }
+  public function show()
+  {
+    
   }
 }

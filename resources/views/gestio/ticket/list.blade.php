@@ -34,6 +34,7 @@
           <th>tipus_pregunta</th>
           <th>Estat</th>
           <th>Missatge</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +45,13 @@
           <td>{{ $users->pregunta }}</td>
           <td>{{ $users->missatge}}</td>
           <td>{{ $users->nom_estat}}</td>
-
+          <td>
+            <form action="{{ route('ticket.destroy', $users->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button id="confirm_delete" class="btn btn-danger btn-sm" type="submit">Suprimir</button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </tbody>
