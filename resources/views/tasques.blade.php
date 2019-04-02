@@ -128,6 +128,36 @@
         </table>
     </div>
 
+    <div class="table-responsive">
+      <h6 class="font-weight-bold text-center">Tasques tiquets</h6>
+      <table
+          class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+          id="results_table" role="grid">
+          <thead class="thead-light">
+              <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Pregunta</th>
+                <th>Missatge</th>
+                <th></th>
+
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($assignacio as $atraccio)
+              <tr>
+                <td>{{$tiquets->nom}}</td>
+                <td>{{$tiquets->email}}</td>
+                <td>{{$tiquets->tipus_pregunta}}</td>
+                <td>{{$tiquets->missatge}}</td>
+                <td>{{$tiquets->tipus_pregunta}}</td>
+
+              </tr>
+              @endforeach
+          </tbody>
+        </table>
+    </div>
+
 </div>
 
 @endsection

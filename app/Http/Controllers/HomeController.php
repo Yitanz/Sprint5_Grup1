@@ -26,6 +26,8 @@ use \App\Atraccion;
 use \App\Promocions;
 use \App\User;
 use \App\TipusAtraccions;
+use \App\Contacte;
+use \App\Linia_contacte;
 
 class HomeController extends Controller
 {
@@ -173,19 +175,14 @@ class HomeController extends Controller
                   'atraccions.id as id_atra'
               ]);
 
-      /*$incidencies_fetes = Incidencia::where('id_usuari_assignat', $user->id)
-      ->where('id_estat',3)
-      ->join('tipus_prioritat', 'incidencies.id_prioritat', 'tipus_prioritat.id')
-      ->join('estat_incidencies', 'incidencies.id_estat', 'estat_incidencies.id')
-      ->get([
-        'incidencies.id as id',
-        'incidencies.titol as titol',
-        'incidencies.descripcio as descripcio',
-        'tipus_prioritat.nom_prioritat as nom_prioritat',
-        'estat_incidencies.nom_estat as nom_estat',
-      ]);*/
+      $tiquets = Linia_Contacte::where('id_empleat',$user->id)
+      ->leftJoin('contacte', 'contacte.id', 'linia_contacte.id_ticket_contacte')
+      ->get();
 
-      return view('tasques', compact(['incidencies_per_fer','assignacio']));
+
+
+
+      return view('tasques', compact(['incidencies_per_fer','assignacio','tiquets']));
     }
 
 /*Funcio que rep*/
