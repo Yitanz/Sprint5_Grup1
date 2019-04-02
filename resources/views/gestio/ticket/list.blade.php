@@ -33,6 +33,7 @@
           <th>Client</th>
           <th>tipus_pregunta</th>
           <th>Estat</th>
+          <th>Missatge</th>
         </tr>
       </thead>
       <tbody>

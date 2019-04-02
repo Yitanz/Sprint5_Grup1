@@ -36,8 +36,10 @@
  Route::post('/contacte', 'ContacteController@store' )->name('contacte2');
 
  //gestio ticket/dubtes/contacte
- Route::get('gestio/ticket/{id}', 'ContacteController@llistarEmpleats')->name('ticket.assign')->middleware(['auth','is_admin','verified']);
+
  Route::any('gestio/ticket/list', 'ContacteController@assignList')->name('ticket.list')->middleware(['auth','is_admin','verified']);
+ Route::any('gestio/ticket/{id}', 'ContacteController@llistarEmpleats')->name('ticket.assign')->middleware(['auth','is_admin','verified']);
+
 
  Route::any('gestio/save{id}','ContacteController@saveTicket')->name('saveTicket')->middleware(['auth','is_admin','verified']);
 

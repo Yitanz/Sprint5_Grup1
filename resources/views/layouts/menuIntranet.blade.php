@@ -249,6 +249,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-interior {{ request()->routeIs('ticket.list') ? 'active' : '' }}" href="{{URL::route('ticket.list')}}"><span data-feather="file-text"></span>Llistar Tickets Assignats</a>
+            </li>
           </ul>
         </li>
 

@@ -83,9 +83,8 @@ class ContacteController extends Controller
     $linia = Linia_Contacte::where('id_estat', 1)
     ->join('contacte AS con', 'linia_contacte.id_ticket_contacte', 'con.id')
     ->join('users AS us', 'linia_contacte.id_empleat', 'us.id')
-    ->join('estat_incidencies','estat_incidencies.id','incidencies.id_estat')
+    ->join('estat_incidencies','estat_incidencies.id','con.id_estat')
     ->get([
-
       'us.nom as nom_empleat',
       'con.email as email',
       'con.tipus_pregunta as pregunta',
@@ -93,6 +92,6 @@ class ContacteController extends Controller
       'estat_incidencies.nom_estat as nom_estat'
     ]);
 
-    return view('/gestio/ticket/list', 'linia');
+    return view('/gestio/ticket/list', compact('linia'));
   }
 }
