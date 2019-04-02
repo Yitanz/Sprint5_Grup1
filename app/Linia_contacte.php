@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Linia_contacte extends Model
 {
   protected $table = 'linia_contacte';
+
+      protected $fillable = [
+      'id_tiquet_contacte',
+      'id_empleat',
+
+    ];
 }

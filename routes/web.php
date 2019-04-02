@@ -37,12 +37,12 @@
 
  //gestio ticket/dubtes/contacte
  Route::get('gestio/ticket/{id}', 'ContacteController@llistarEmpleats')->name('ticket.assign')->middleware(['auth','is_admin','verified']);
-
-
-
-
- /* RUTES GRUP 1 */
- Auth::routes(['verify' => true]);
+ Route::any('gestio/save{id}','ContacteController@saveTicket')->name('saveTicket')->middleware(['auth','is_admin','verified']);
+  
+  
+  
+   /* RUTES GRUP 1 */
+   Auth::routes(['verify' => true]);
 
  Route::patch('/notification-read/{id}', 'NotificationsController@destroy')->name('markasread')->middleware(['auth','verified']);
 

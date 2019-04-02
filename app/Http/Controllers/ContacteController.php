@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contacte;
 use App\User;
+use App\Linia_contacte;
 
 class ContacteController extends Controller
 {
@@ -42,16 +43,34 @@ class ContacteController extends Controller
       return redirect('/contacte')->with('success', 'Contacte enviat correctament');
   }
 
-  public function llistarEmpleats()
+  public function llistarEmpleats($id)
   {
     $user = User::where('id_rol', 6)
     ->get([
       'users.nom',
       'users.cognom1',
-      'users.email'
+      'users.email',
+      'users.id'
     ]);
 
-    return view('/gestio/ticket/assign', compact('user'));
+    $tiquet = Contacte::find($id); 
+
+
+    return view('/gestio/ticket/assign', compact('user', 'tiquet'));
   }
 
+  public function saveTicket(Request $request){
+
+dd($request->tiquetID);
+    $lineContact = new Linia_contacte ([
+
+      
+
+      'id_ticket_contacte' => $request->get('tiquetID'),
+      'id_empleat' => $request->get('id_empleat')
+    
+    ]);
+
+    $lineContact->save();
+  }
 }
