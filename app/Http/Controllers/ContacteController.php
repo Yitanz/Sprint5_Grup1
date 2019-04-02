@@ -91,11 +91,7 @@ class ContacteController extends Controller
       'con.missatge as missatge',
       'estat_incidencies.nom_estat as nom_estat'
     ]);
-
-<<<<<<< HEAD
-    return view  ('/gestio/ticket/list'), compact('linia'));
-=======
+    
     return view('/gestio/ticket/list', compact('linia'));
->>>>>>> e8c080d055c68958e93b9339431b75032e76a9ec
   }
 }
