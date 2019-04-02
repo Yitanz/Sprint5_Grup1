@@ -46,7 +46,7 @@
           <td>{{ $users->missatge}}</td>
           <td>{{ $users->nom_estat}}</td>
           <td>
-            <form action="{{ route('ticket.destroy', $users->id)}}" method="post">
+            <form action="{{ route('ticket.assign.destroy', $users->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button id="confirm_delete" class="btn btn-danger btn-sm" type="submit">Suprimir</button>
