@@ -13,6 +13,7 @@ class ContacteController extends Controller
     $ticket = Contacte::where('id_estat', 1)
     ->join('estat_incidencies','estat_incidencies.id','contacte.id_estat')
     ->get([
+      'contacte.id as id',
       'contacte.nom as nom',
       'contacte.email as email',
       'contacte.tipus_pregunta as pregunta',
@@ -41,9 +42,11 @@ class ContacteController extends Controller
   }
 
 
-  public function show()
+  public function assign($id)
   {
+    $ticket = Contacte::find($id);
 
+    return view('/gestio/ticket/assign', compact('ticket'));
   }
 
 }

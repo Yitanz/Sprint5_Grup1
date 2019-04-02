@@ -81,7 +81,7 @@ class UsersTableSeeder extends Seeder
             'actiu' => 1,
             'remember_token' => null
         ]);
-    
+
         DB::table('users')->insert([
             'nom' => 'Miare',
             'cognom1' => 'Pambisita',
@@ -98,7 +98,7 @@ class UsersTableSeeder extends Seeder
             'numero_document' => '47481130Z',
             'sexe' => 'Home',
             'telefon' => '657337571',
-            'id_rol' => 3,
+            'id_rol' => 6,
             'id_dades_empleat' => 3,
             'actiu' => 1,
             'remember_token' => null
@@ -120,7 +120,7 @@ class UsersTableSeeder extends Seeder
             'numero_document' => '47481130Z',
             'sexe' => 'Home',
             'telefon' => '657337571',
-            'id_rol' => 4,
+            'id_rol' => 6,
             'id_dades_empleat' => 4,
             'actiu' => 1,
             'remember_token' => null
