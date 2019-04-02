@@ -42,21 +42,16 @@ class ContacteController extends Controller
       return redirect('/contacte')->with('success', 'Contacte enviat correctament');
   }
 
-
-  public function assign($id)
-  {
-    $ticket = Contacte::find($id);
-
-    return view('/gestio/ticket/assign', compact('ticket'));
-  }
-
   public function llistarEmpleats()
   {
     $user = User::where('id_rol', 6)
     ->get([
-      
+      'users.nom',
+      'users.cognom1',
+      'users.email'
     ]);
 
+    return view('/gestio/ticket/assign', compact('user'));
   }
 
 }
