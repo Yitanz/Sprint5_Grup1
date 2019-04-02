@@ -247,7 +247,10 @@
             <li class="nav-item">
               <a class="nav-link nav-interior {{ request()->routeIs('ticket.index') ? 'active' : '' }}" href="{{URL::route('ticket.index')}}"><span data-feather="file-text"></span>Llistar Tickets</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link nav-interior {{ request()->routeIs('ticket.list') ? 'active' : '' }}" href="{{URL::route('ticket.list')}}"><span data-feather="file-text"></span>Llistar Tickets Assignats</a>
           </ul>
+        </li>
 
         </ul>
       </div>
