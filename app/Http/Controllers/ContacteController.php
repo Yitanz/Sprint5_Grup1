@@ -53,7 +53,7 @@ class ContacteController extends Controller
       'users.id'
     ]);
 
-    $tiquet = Contacte::find($id); 
+    $tiquet = Contacte::find($id);
 
 
     return view('/gestio/ticket/assign', compact('user', 'tiquet'));
@@ -61,16 +61,14 @@ class ContacteController extends Controller
 
   public function saveTicket(Request $request){
 
-dd($request->tiquetID);
     $lineContact = new Linia_contacte ([
-
-      
-
       'id_ticket_contacte' => $request->get('tiquetID'),
       'id_empleat' => $request->get('id_empleat')
-    
     ]);
 
     $lineContact->save();
+
+    return redirect('/gestio/ticket')->with('success', 'Contacte enviat correctament');
+
   }
 }
