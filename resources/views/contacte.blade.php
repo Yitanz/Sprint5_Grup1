@@ -61,6 +61,9 @@ img.tick {
 .jumbotron.text-center.mt-3 {
     margin-top: 0px !important;
 }
+.container {
+    margin-bottom: 25px;
+}
 </style>
   <div class="container-fluid foto"></div>
     <div class="foto"></div>
@@ -119,12 +122,6 @@ img.tick {
         </div>
         </div>
       </div>
-    </div>
-      </div>
-  </div>
-</div>
-
-
 <script>
 
 $(document).ready(function(){
