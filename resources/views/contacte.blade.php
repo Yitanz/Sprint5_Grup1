@@ -16,12 +16,8 @@
 .foto{
   position: absolute;
   z-index: 0;
-<<<<<<< HEAD
-  height: 100%;
-=======
   /*height: 100%;*/
   height: 120%;
->>>>>>> b4fc8771e947609ca1cca13160c907803210396d
   background-image: url("img/atraccio.jpg");
 }
 .content{
