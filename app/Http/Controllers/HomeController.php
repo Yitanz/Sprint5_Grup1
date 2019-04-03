@@ -177,7 +177,12 @@ class HomeController extends Controller
 
       $tiquets = Linia_Contacte::where('id_empleat',$user->id)
       ->leftJoin('contacte', 'contacte.id', 'linia_contacte.id_ticket_contacte')
-      ->get();
+      ->get([
+        'contacte.nom as nom',
+        'contacte.email as email',
+        'contacte.tipus_pregunta as tipus_pregunta',
+        'contacte.missatge as missatge'
+      ]);
 
 
 

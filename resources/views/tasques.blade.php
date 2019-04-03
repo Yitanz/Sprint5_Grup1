@@ -144,14 +144,20 @@
               </tr>
           </thead>
           <tbody>
-              @foreach($assignacio as $atraccio)
+              @foreach($tiquets as $tiquet)
               <tr>
-                <td>{{$tiquets->nom}}</td>
-                <td>{{$tiquets->email}}</td>
-                <td>{{$tiquets->tipus_pregunta}}</td>
-                <td>{{$tiquets->missatge}}</td>
-                <td>{{$tiquets->tipus_pregunta}}</td>
-
+                <td>{{$tiquet->nom}}</td>
+                <td>{{$tiquet->email}}</td>
+                <td>{{$tiquet->tipus_pregunta}}</td>
+                <td>{{$tiquet->missatge}}</td>
+                <td>{{$tiquet->tipus_pregunta}}</td>
+                <td>
+                  <form method="post" action="{{ route('tickets.conclude', $tiquet->id) }}">
+                      @method('PATCH')
+                      @csrf
+                      <button class="btn btn-warning btn-sm" type="submit">Marcar com a fet</button>
+                  </form>
+                </td>
               </tr>
               @endforeach
           </tbody>

@@ -74,8 +74,6 @@
 
  Route::resource('/gestio/promocions', 'PromocionsController')->middleware(['auth','is_admin','verified']);
 
- Route::resource('/gestio/ticket', 'ContacteController')->middleware(['auth','is_admin','verified']);
-
  Route::get('/view/incidencies/assign', 'IncidenciesController@assignadesGuardarPDF')->middleware(['auth','is_admin','verified']);
 
  Route::get('/votacions',"HomeController@votacions")->name('votacions');
@@ -86,7 +84,10 @@
 
  Route::get('/notificacions', 'HomeController@notificacionsGeneral')->name('notificacions')->middleware(['auth','is_worker','verified']);
 
+ Route::patch('/tasques/ticket/{id}', 'ContacteController@conclude')->name('tickets.conclude')->middleware(['auth','is_worker','verified']);
+
  Route::patch('/tasques/{id}', 'IncidenciesController@conclude')->name('incidencies.conclude')->middleware(['auth','is_worker','verified']);
+
 
 
  /* RUTES GRUP 2 */

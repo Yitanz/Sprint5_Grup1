@@ -33,16 +33,18 @@ class ContacteController extends Controller
   {
 
       $contacte = new Contacte ([
-          'nom' => $request->get('nom'),
-          'email' => $request->get('email'),
-          'tipus_pregunta' => $request->get('opcio'),
-          'missatge' => $request->get('consulta'),
+          'nom' => $request->nom,
+          'email' => $request->email,
+          'tipus_pregunta' => $request->tipus_pregunta,
+          'missatge' => $request->consulta,
           'id_estat' => 1,
       ]);
 
       $contacte->save();
 
-      return redirect('/contacte')->with('success', 'Contacte enviat correctament');
+      return response()->json(['success'=>'Data is successfully added']);
+
+      //return redirect('/contacte')->with('success', 'Contacte enviat correctament');
   }
 
 //llista empleat
@@ -92,7 +94,7 @@ class ContacteController extends Controller
       'con.missatge as missatge',
       'estat_incidencies.nom_estat as nom_estat'
     ]);
-    
+
     return view('/gestio/ticket/list', compact('linia'));
   }
 
@@ -100,11 +102,18 @@ class ContacteController extends Controller
   {
       $linia = Linia_Contacte::find($id);
       $linia->delete();
-      return redirect('/gestio/ticket/list')->with('success', 'ticket suprimida correctament');
+      return redirect('/gestio/ticket/list')->with('success', 'ticket suprimit correctament');
 
   }
-  public function show()
+
+  public function conclude($id)
   {
-    
+    $ticket = Contacte::findOrFail($id);
+
+    $ticket->id_estat = 3;
+
+    $ticket->save();
+
+    return redirect('/tasques')->with('success', 'Ticket finalitzat correctament');
   }
 }
