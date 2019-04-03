@@ -75,7 +75,11 @@ $(document).ready(function(){
 },
       success: function(result) {
         $("#submit").html("Enviat Correctament");
+         $("#submit").attr("disabled", true);
 
+         $("#submit").removeClass("btn btn-primary");
+
+         $("#submit").addClass("btn btn-success");
           console.log(result);
       }});
   });
