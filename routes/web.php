@@ -37,6 +37,8 @@
 
  //gestio ticket/dubtes/contacte
 
+ Route::get('gestio/ticket', 'ContacteController@index')->name('ticket.index')->middleware(['auth','is_admin','verified']);
+
  Route::any('gestio/ticket/destroy/{id}', 'ContacteController@destroy')->name('ticket.assign.destroy')->middleware(['auth','is_admin','verified']);
 
  Route::any('gestio/ticket/list', 'ContacteController@assignList')->name('ticket.list')->middleware(['auth','is_admin','verified']);
@@ -73,6 +75,7 @@
  Route::resource('/gestio/noticies', 'NoticiesController')->middleware(['auth','is_admin','verified']);
 
  Route::resource('/gestio/promocions', 'PromocionsController')->middleware(['auth','is_admin','verified']);
+
 
  Route::get('/view/incidencies/assign', 'IncidenciesController@assignadesGuardarPDF')->middleware(['auth','is_admin','verified']);
 

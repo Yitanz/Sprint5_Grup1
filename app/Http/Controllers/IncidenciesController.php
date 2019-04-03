@@ -43,7 +43,7 @@ class IncidenciesController extends Controller
 
     /**
      * Display the assigned incidences
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function assigned()
@@ -69,7 +69,7 @@ class IncidenciesController extends Controller
 
     /**
      * Display the done incidences
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function done()
@@ -153,9 +153,9 @@ class IncidenciesController extends Controller
         $user = Auth::user();
 
         $incidencia = new Incidencia([
-            'titol' => $request->get('title'),
-            'descripcio' => $request->get('description'),
-            'id_prioritat' => $request->get('priority'),
+            'titol' => $request->title,
+            'descripcio' => $request->description,
+            'id_prioritat' => $request->priority,
             'id_estat' => 1,
             'id_usuari_reportador' => $user->id,
         ]);

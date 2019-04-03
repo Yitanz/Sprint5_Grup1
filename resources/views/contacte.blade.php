@@ -11,6 +11,9 @@
 <!-- CONTACTE -->
 <div id="app" class="container jumbotron mt-3">
   <div class="row">
+    <div class="col-sm-12">
+      <h3 class="font-weight-bold text-center text-uppercase">Contacte</h3>
+      </div>
       <div class="col-sm-12">
         <form id="form">
           @csrf
@@ -80,6 +83,8 @@ $(document).ready(function(){
          $("#submit").removeClass("btn btn-primary");
 
          $("#submit").addClass("btn btn-success");
+
+         $("#form")[0].reset();
           console.log(result);
       }});
   });
