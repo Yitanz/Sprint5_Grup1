@@ -11,18 +11,18 @@
 
   height:100%;
   width:100%;
-  
+
 }
 .foto{
   position: absolute;
   z-index: 0;
   /*height: 100%;*/
-  height: 100%;
+  height: 120%;
   background-image: url("img/atraccio.jpg");
 }
 .content{
   position: relative;
-  height: 100%;
+  height: 120%;
   z-index: 1;
   background: rgb(255,255,255);
     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 40%);
@@ -71,7 +71,8 @@ img.tick {
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-4 offset-md-5 col-lg-4 offset-lg-5 col-xl-4 offset-xl-5">
-            <img class= "fototitol" src="img/logo.png"></div>
+            <img class= "fototitol" src="img/logo.png">
+          </div>
         </div>
         <div class="row contingut">
         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
@@ -86,7 +87,7 @@ img.tick {
           <div class="row">
             <div class="col-sm-1 offset-sm-3 col-md-1 offset-md-3 col-lg-1 offset-lg-3 col-xl-1 offset-xl-3"><img class="tick" src="img/61343.svg"></div>
             <div class="col-lg-7"><h3>Consultans tots els dubtes</h3></div>
-          </div>  
+          </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
           <form id="form">
