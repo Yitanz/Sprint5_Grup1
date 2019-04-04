@@ -40,13 +40,15 @@ class ServeisController extends Controller
      */
     public function create()
     {
-        $treballadors = User::where('id_rol',3)
+        $treballadors = User::where('id_rol',[4])->orWhere('id_rol',[3])
+
         ->whereNotNull('email_verified_at')
         ->get();
 
         $zones = Zona::all();
         $serveis = Servei::all();
         return view('gestio/serveis/create', compact('serveis','zones','treballadors'));
+
     }
 
     /**
@@ -101,7 +103,7 @@ class ServeisController extends Controller
     {
       $assign = ServeisZones::find($id);
 
-      $treballadors = User::where('id_rol',3)
+      $treballadors = User::where('id_rol',3,4)
       ->whereNotNull('email_verified_at')
       ->get();
 
