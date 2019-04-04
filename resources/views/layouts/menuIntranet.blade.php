@@ -126,9 +126,17 @@
             </li>
           </ul>
 
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('ServeisDesactivats*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('GestioServeis*') ? 'true' : 'false' }}" href="#submenu7">
+              <span data-feather="truck"></span>
+              Serveis completats
+              <span data-feather="chevron-right"></span>
+            </a>
+          </li>
+
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('zones*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('zones*') ? 'true' : 'false' }}" href="#submenu7">
+            <a class="nav-link {{ request()->routeIs('zones*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('zones*') ? 'true' : 'false' }}" href="#submenu8">
               <span data-feather="truck"></span>
               Zones
               <span data-feather="chevron-right"></span>
@@ -146,7 +154,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('productes*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('productes*') ? 'true' : 'false' }}" href="#submenu8">
+            <a class="nav-link {{ request()->routeIs('productes*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('productes*') ? 'true' : 'false' }}" href="#submenu9">
               <span data-feather="truck"></span>
               Productes
               <span data-feather="chevron-right"></span>
@@ -168,7 +176,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('noticies*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="false" href="#submenu9">
+            <a class="nav-link {{ request()->routeIs('noticies*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="false" href="#submenu10">
               <span data-feather="alert-triangle"></span>
               Notícies
               <span data-feather="chevron-right"></span>
@@ -185,7 +193,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('imatges*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('imatges*') ? 'true' : 'false' }}" href="#submenu10">
+            <a class="nav-link {{ request()->routeIs('imatges*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('imatges*') ? 'true' : 'false' }}" href="#submenu11">
               <span data-feather="alert-triangle"></span>
               Imatges
               <span data-feather="chevron-right"></span>
@@ -202,7 +210,7 @@
           </ul>
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('AssignEmpZona*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('AssignEmpZona*') ? 'true' : 'false' }}" href="#submenu11">
+            <a class="nav-link {{ request()->routeIs('AssignEmpZona*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('AssignEmpZona*') ? 'true' : 'false' }}" href="#submenu12">
               <span data-feather="truck"></span>
               Empleats Zones
               <span data-feather="chevron-right"></span>
@@ -220,7 +228,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" aria-expanded="false" href="#submenu12">
+            <a class="nav-link" data-toggle="collapse" aria-expanded="false" href="#submenu13">
               <span data-feather="alert-triangle"></span>
               Promocions
               <span data-feather="chevron-right"></span>
