@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('ciutat');
             $table->string('provincia');
             $table->string('codi_postal');
-            $table->string('tipus_document');
+            $table->enum('tipus_document', ['DNI', 'NIE']);
             $table->string('numero_document');
             $table->string('sexe');
             $table->string('telefon');
