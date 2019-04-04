@@ -8,6 +8,10 @@ use App\User;
 use App\Linia_contacte;
 
 use App\Notifications\TicketAssigned;
+use App\Notifications\TicketClientCreate;
+use Notification;
+
+use Auth;
 
 class ContacteController extends Controller
 {
@@ -34,6 +38,11 @@ class ContacteController extends Controller
   public function store(Request $request)
   {
       $numTiquet = rand(11111,99999);
+
+      //$usuari = Auth::user();
+
+      //$user = User::find($usuari->id);
+
       $contacte = new Contacte ([
 
 
@@ -48,11 +57,14 @@ class ContacteController extends Controller
 
       $contacte->save();
 
-
+      $user = Notification::route('mail', $request->email)
+        ->notify(new TicketClientCreate($contacte));
 
       return response()->json(['success'=>'Data is successfully added']);
 
       //return redirect('/contacte')->with('success', 'Contacte enviat correctament');
+
+
   }
 
 //llista empleat
