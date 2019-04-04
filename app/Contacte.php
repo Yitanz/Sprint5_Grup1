@@ -13,7 +13,8 @@ class Contacte extends Model
       'email',
       'tipus_pregunta',
       'missatge',
-      'id_estat'
+      'id_estat',
+      'id_tiquet'
     ];
 
 

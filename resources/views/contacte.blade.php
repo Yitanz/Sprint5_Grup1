@@ -142,7 +142,6 @@ $(document).ready(function(){
         email: jQuery('#email').val(),
         tipus_pregunta: jQuery('#tipus_pregunta').val(),
         consulta: jQuery('#consulta').val()
-
       },
       error: function(xhr, status, error) {
   alert("Error: " + xhr.status + " - " + error);

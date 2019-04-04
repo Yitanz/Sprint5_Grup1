@@ -31,17 +31,23 @@ class ContacteController extends Controller
 //guarda ticket en contacte
   public function store(Request $request)
   {
-
+      $numTiquet = rand(11111,99999);
       $contacte = new Contacte ([
+
+
           'nom' => $request->nom,
           'email' => $request->email,
           'tipus_pregunta' => $request->tipus_pregunta,
           'missatge' => $request->consulta,
           'id_estat' => 1,
+          'id_tiquet' =>$numTiquet
+          
       ]);
 
       $contacte->save();
 
+      
+      
       return response()->json(['success'=>'Data is successfully added']);
 
       //return redirect('/contacte')->with('success', 'Contacte enviat correctament');
