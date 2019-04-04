@@ -127,7 +127,7 @@
           </ul>
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('ServeisDesactivats*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('GestioServeis*') ? 'true' : 'false' }}" href="#submenu7">
+            <a class="nav-link {{ request()->routeIs('ServeisDesactivats*') ? 'active' : '' }}" data-toggle="collapse" aria-expanded="{{ request()->routeIs('ServeisDesactivats*') ? 'true' : 'false' }}" href="#submenu7">
               <span data-feather="truck"></span>
               Serveis completats
               <span data-feather="chevron-right"></span>
