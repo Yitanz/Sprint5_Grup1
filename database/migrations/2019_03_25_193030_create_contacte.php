@@ -19,7 +19,7 @@ class CreateContacte extends Migration
             $table->string('email');
             $table->enum('tipus_pregunta', ['Entrades','Botiga','Horaris', 'Devolucions', 'Comandes']);
             $table->string('missatge');
-            $table->int('id_tiquet');
+            $table->integer('id_tiquet');
             $table->unsignedInteger('id_estat');
             $table->foreign('id_estat')->references('id')->on('estat_incidencies');
             $table->timestamp('created_at')->useCurrent();
