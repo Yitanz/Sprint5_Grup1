@@ -20,6 +20,6 @@ class ServeisDesactivats extends Controller
       'users.nom as nom_empleat'
     ]);
 
-    return view('gestio/serveis/index', compact('assignacions'));
+    return view('gestio/ServeisDesactivats/index', compact('assignacions'));
   }
 }
