@@ -152,7 +152,7 @@
                 <td>{{$tiquet->missatge}}</td>
                 <td>{{$tiquet->tipus_pregunta}}</td>
                 <td>
-                  <form method="post" action="{{ route('tickets.conclude', $tiquet->id) }}">
+                  <form method="post" action="{{ route('ticket.bonic.conclude', $tiquet->id) }}">
                       @method('PATCH')
                       @csrf
                       <button class="btn btn-warning btn-sm" type="submit">Marcar com a fet</button>

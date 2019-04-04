@@ -71,15 +71,22 @@ class ContacteController extends Controller
   }
 
 //guarda ticket
-  public function saveTicket(Request $request)
+  public function saveTicket(Request $request, $id)
   {
 
     $lineContact = new Linia_contacte ([
       'id_ticket_contacte' => $request->get('tiquetID'),
-      'id_empleat' => $request->get('id_empleat')
+      'id_empleat' => $request->get('id_empleat'),
     ]);
 
     $lineContact->save();
+
+    $contacte = Contacte::find($id);
+
+    $contacte->id_estat = 2;
+
+    $contacte->save();
+
 
     return redirect('/gestio/ticket')->with('success', 'Contacte enviat correctament');
 
@@ -88,7 +95,7 @@ class ContacteController extends Controller
 //llista els tickets assignats
   public function assignList()
   {
-    $linia = Linia_Contacte::where('id_estat', 1)
+    $linia = Linia_Contacte::where('id_estat', 2)
     ->join('contacte AS con', 'linia_contacte.id_ticket_contacte', 'con.id')
     ->join('users AS us', 'linia_contacte.id_empleat', 'us.id')
     ->join('estat_incidencies','estat_incidencies.id','con.id_estat')
