@@ -38,7 +38,7 @@
                             @method('PATCH')
                             @csrf
                             <input type="hidden" name="notification_uuid" value="{{ $notification->id }}">
-                            <button class="dropdown-item" type="submit">{{ $notification->data['titol'] }}</button>
+                            <button class="dropdown-item" type="submit">{{ $notification->data['id'] }}</button>
                         </form>
                     </li>
                     @endforeach
@@ -93,7 +93,7 @@
                             @method('PATCH')
                             @csrf
                             <input type="hidden" name="notification_uuid" value="{{ $notification->id }}">
-                            <button class="dropdown-item" type="submit">{{ $notification->data['titol'] }}</button>
+                            <button class="dropdown-item" type="submit">{{ $notification->data['id'] }}</button>
                         </form>
                     </li>
                     @endforeach
@@ -150,7 +150,7 @@
                             @method('PATCH')
                             @csrf
                             <input type="hidden" name="notification_uuid" value="{{ $notification->id }}">
-                            <button class="dropdown-item" type="submit">{{ $notification->data['titol'] }}</button>
+                            <button class="dropdown-item" type="submit">{{ $notification->data['id'] }}</button>
                         </form>
                     </li>
                     @endforeach

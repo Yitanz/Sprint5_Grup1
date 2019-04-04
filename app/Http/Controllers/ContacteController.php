@@ -7,6 +7,8 @@ use App\Contacte;
 use App\User;
 use App\Linia_contacte;
 
+use App\Notifications\TicketAssigned;
+
 class ContacteController extends Controller
 {
 
@@ -41,13 +43,13 @@ class ContacteController extends Controller
           'missatge' => $request->consulta,
           'id_estat' => 1,
           'id_tiquet' =>$numTiquet
-          
+
       ]);
 
       $contacte->save();
 
-      
-      
+
+
       return response()->json(['success'=>'Data is successfully added']);
 
       //return redirect('/contacte')->with('success', 'Contacte enviat correctament');
@@ -78,7 +80,6 @@ class ContacteController extends Controller
       'id_ticket_contacte' => $request->get('tiquetID'),
       'id_empleat' => $request->get('id_empleat'),
     ]);
-
     $lineContact->save();
 
     $contacte = Contacte::find($id);
@@ -86,6 +87,10 @@ class ContacteController extends Controller
     $contacte->id_estat = 2;
 
     $contacte->save();
+
+
+    $user = User::find($request->get('id_empleat'));
+    $user->notify(new TicketAssigned($contacte));
 
 
     return redirect('/gestio/ticket')->with('success', 'Contacte enviat correctament');
