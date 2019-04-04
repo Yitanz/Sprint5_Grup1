@@ -87,7 +87,7 @@
 
  Route::get('/notificacions', 'HomeController@notificacionsGeneral')->name('notificacions')->middleware(['auth','is_worker','verified']);
 
- Route::any('/tasques/magia/{id}', 'ContacteController@conclude')->name('ticket.bonic.conclude')->middleware(['auth','is_worker','verified']);
+ Route::patch('/tasques/ticket/{id}', 'ContacteController@conclude')->name('ticket.bonic.conclude')->middleware(['auth','is_worker','verified']);
 
  Route::patch('/tasques/{id}', 'IncidenciesController@conclude')->name('incidencies.conclude')->middleware(['auth','is_worker','verified']);
 
