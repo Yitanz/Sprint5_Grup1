@@ -60,6 +60,8 @@
 
  Route::resource('gestio/serveis', 'ServeisController')->middleware(['auth','is_admin','verified']);
 
+ Route::resource('gestio/ServeisDesactivats', 'ServeisDesactivats')->middleware(['auth','is_admin','verified']);
+
  Route::resource('/gestio/noticies', 'NoticiesController')->middleware(['auth','is_admin','verified']);
 
  Route::resource('/gestio/promocions', 'PromocionsController')->middleware(['auth','is_admin','verified']);

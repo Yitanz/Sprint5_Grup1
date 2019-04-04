@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use \App\Servei;
+use \App\User;
+use \App\Zona;
+use \App\ServeisZones;
+
 class ServeisDesactivats extends Controller
 {
   public function index()
