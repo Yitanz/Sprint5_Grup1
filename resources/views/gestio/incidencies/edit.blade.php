@@ -52,21 +52,66 @@
             <select id="employees" name="assigned-employee" class="form-control form-control-sm">
                 @if($treballador_assignat != null)
                 @foreach ($treballadors as $treballador)
-                
+
                 @if($treballador->id == $treballador_assignat->id)
                 <option selected value="{{ $treballador_assignat->id }}"> {{ $treballador_assignat->nom }}
                     {{ $treballador_assignat->cognom1 }} {{ $treballador_assignat->cognom2 }}
                     {{ $treballador_assignat->numero_document }}</option>
-                @else
-                <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
-                    {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
                 @endif
                 @endforeach
-
-                @else
+                <!-- Mostrar empleats de manteniment -->
+                <option disabled>Manteniment</option>
                 @foreach ($treballadors as $treballador)
-                <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
-                    {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @if($treballador->id_rol == 3)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
+                @endforeach
+
+                <!-- Mostrar empleats de neteja -->
+                <option disabled>Neteja</option>
+                @foreach ($treballadors as $treballador)
+                  @if($treballador->id_rol == 4)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
+                @endforeach
+
+                <!-- Mostrar empleats generals -->
+                <option disabled>General</option>
+                @foreach ($treballadors as $treballador)
+                  @if($treballador->id_rol == 5)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
+                @endforeach
+                @else
+
+                <!-- Mostrar empleats de manteniment -->
+                <option disabled>Manteniment</option>
+                @foreach ($treballadors as $treballador)
+                  @if($treballador->id_rol == 3)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
+                @endforeach
+
+                <!-- Mostrar empleats de neteja -->
+                <option disabled>Neteja</option>
+                @foreach ($treballadors as $treballador)
+                  @if($treballador->id_rol == 4)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
+                @endforeach
+
+                <!-- Mostrar empleats generals -->
+                <option disabled>General</option>
+                @foreach ($treballadors as $treballador)
+                  @if($treballador->id_rol == 5)
+                  <option value="{{ $treballador->id }}">{{ $treballador->nom }} {{ $treballador->cognom1 }}
+                      {{ $treballador->cognom2 }} {{ $treballador->numero_document }}</option>
+                  @endif
                 @endforeach
                 @endif
             </select>
