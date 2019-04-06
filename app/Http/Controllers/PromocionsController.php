@@ -69,7 +69,7 @@ class PromocionsController extends Controller
           'path_img' => $foto_up
       ]);
       $promocio ->save();
-      return redirect('/gestio/promocions')->with('success', 'Promoció registrada correctament');
+      return redirect('/gestio/promocions')->with('info', 'Promoció registrada correctament');
 
     }
 
@@ -129,7 +129,7 @@ class PromocionsController extends Controller
         $promocio->path_img = "/".$file_path."/".$file_name;
       }
         $promocio->save();
-        return redirect('/gestio/promocions')->with('success', 'Promoció modificada correctament');
+        return redirect('/gestio/promocions')->with('info', 'Promoció modificada');
     }
 
     /**
@@ -142,6 +142,6 @@ class PromocionsController extends Controller
     {
       $promocio = Promocions::find($id);
       $promocio->delete();
-      return redirect('/gestio/promocions') ->with('success', 'Promoció eliminada correctament');
+      return redirect('/gestio/promocions') ->with('info', 'Promoció eliminada');
     }
 }

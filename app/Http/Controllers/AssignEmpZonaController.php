@@ -72,7 +72,7 @@ class AssignEmpZonaController extends Controller
 
     $assignEmpZona->save();
 
-    return redirect('/gestio/AssignEmpZona')->with('success', 'Assignació creada correctament');
+    return redirect('/gestio/AssignEmpZona')->with('info', 'Assignació creada correctament');
   }
 
   /**
@@ -129,7 +129,7 @@ class AssignEmpZonaController extends Controller
     $assign->data_fi = $request->get('data_fi_assign');
     $assign->save();
 
-    return redirect('gestio/AssignEmpZona')->with('success', 'Assignació editada correctament');
+    return redirect('gestio/AssignEmpZona')->with('info', 'Assignació editada correctament');
   }
 
   /**
@@ -143,6 +143,6 @@ class AssignEmpZonaController extends Controller
     $assig = AssignEmpZona::findOrFail($id);
     $assig->delete();
 
-    return redirect('gestio/AssignEmpZona')->with('success', 'Assignació eliminada correctament');
+    return redirect('gestio/AssignEmpZona')->with('info', 'Assignació eliminada correctament');
   }
 }

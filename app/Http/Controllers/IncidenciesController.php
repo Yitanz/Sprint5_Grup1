@@ -133,7 +133,7 @@ class IncidenciesController extends Controller
 
         $incidencia->save();
 
-        return redirect('/gestio/incidencies')->with('success', 'Incidència creada correctament');
+        return redirect('/gestio/incidencies')->with('info', 'Incidència creada correctament');
     }
 
     /**
@@ -162,7 +162,7 @@ class IncidenciesController extends Controller
 
         $incidencia->save();
 
-        return redirect('incidencia')->with('success', 'Incidència reportada correctament');
+        return redirect('incidencia')->with('info', 'Incidència reportada correctament');
     }
 
     /**
@@ -239,7 +239,7 @@ class IncidenciesController extends Controller
         //Enviar notificacio - guardar notificacio en la taula 'notifications'
         $user->notify(new IncidenceAssigned($incidencia));
 
-        return redirect('gestio/incidencies/assign')->with('success', 'Incidència assignada correctament');
+        return redirect('gestio/incidencies/assign')->with('info', 'Incidència assignada correctament');
     }
 
     /**
@@ -254,7 +254,7 @@ class IncidenciesController extends Controller
 
         $incidencia->delete();
 
-        return redirect()->back()->with('success', 'Incidència eliminada correctament');
+        return redirect()->back()->with('info', 'Incidència eliminada correctament');
     }
 
     /**
@@ -271,7 +271,7 @@ class IncidenciesController extends Controller
 
         $incidencia->save();
 
-        return redirect('/tasques')->with('success', 'Incidència finalitzada correctament');
+        return redirect('/tasques')->with('info', 'Incidència finalitzada correctament');
     }
 
     /**

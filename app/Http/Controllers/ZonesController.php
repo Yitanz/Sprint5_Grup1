@@ -49,7 +49,7 @@ class ZonesController extends Controller
           'nom' => $request->get('nom'),
       ]);
       $zona->save();
-      return redirect('/gestio/zones')->with('success', 'Zona creada correctament');
+      return redirect('/gestio/zones')->with('info', 'Zona creada correctament');
     }
 
     /**
@@ -93,7 +93,7 @@ class ZonesController extends Controller
       $zona->nom = $request->get('zona_nom');
       $zona->save();
 
-      return redirect('/gestio/zones')->with('success', 'Zona actualitzada');
+      return redirect('/gestio/zones')->with('info', 'Zona actualitzada');
     }
 
     /**
@@ -107,6 +107,6 @@ class ZonesController extends Controller
       $zona = Zona::find($id);
       $zona->delete();
 
-      return redirect('/gestio/zones')->with('success', 'Zona eliminada.');
+       return back()->with('info','Zona eliminada');
     }
 }

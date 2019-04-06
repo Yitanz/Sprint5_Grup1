@@ -151,7 +151,7 @@ class gestioProductes extends Controller
       );*/
 
       $producte ->save();
-      return redirect('/gestio/productes')->with('success', 'Producte registrat');
+      return redirect('/gestio/productes')->with('info', 'Producte registrat');
     }
 
     /**
@@ -221,7 +221,7 @@ class gestioProductes extends Controller
       }
       $atributs_producte->save();
 
-      return redirect('/gestio/productes')->with('success', 'Producte modificat correctament');
+      return redirect('/gestio/productes')->with('info', 'Producte modificat correctament');
     }
 
     /**
@@ -236,6 +236,6 @@ class gestioProductes extends Controller
         $atributs_producte = Atributs_producte::find($producte->atributs);
         $producte->delete();
         $atributs_producte->delete();
-        return redirect('/gestio/productes') ->with('success', 'Producte eliminat correctament');
+        return redirect('/gestio/productes') ->with('info', 'Producte eliminat correctament');
     }
 }

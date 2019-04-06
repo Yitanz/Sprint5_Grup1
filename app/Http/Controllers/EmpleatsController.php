@@ -54,7 +54,7 @@ class EmpleatsController extends Controller
             'dades_empleats.data_fi_contracte as data_fi_contracte',
             'horaris.torn as id_horari',
         ]);
-    
+
         return view('gestio/empleats/index', compact('users'));
     }
 
@@ -115,7 +115,7 @@ class EmpleatsController extends Controller
             'data_fi_contracte' => $request->get('data_fi_contracte'),
             'id_horari' => $request->get('id_horari')
         ]);
-       
+
         $usuari = new User([
             'nom' => $request->get('nom'),
             'cognom1' => $request->get('cognom1'),
@@ -146,7 +146,7 @@ class EmpleatsController extends Controller
 
         });
 
-        return redirect('/gestio/empleats')->with('success', 'Empleat creat correctament');
+        return redirect('/gestio/empleats')->with('info', 'Empleat creat correctament');
     }
 
     /**
@@ -254,7 +254,7 @@ class EmpleatsController extends Controller
 
         });
 
-        return redirect('/gestio/empleats')->with('success', 'Empleat modificat correctament');
+        return redirect('/gestio/empleats')->with('info', 'Empleat modificat correctament');
     }
 
     /**
@@ -270,6 +270,6 @@ class EmpleatsController extends Controller
 
         $user->save();
 
-        return redirect('/gestio/empleats')->with('success', 'Empleat desactivat correctament');
+        return redirect('/gestio/empleats')->with('info', 'Empleat desactivat correctament');
     }
 }

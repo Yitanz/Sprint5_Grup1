@@ -106,7 +106,7 @@ class AtraccionsController extends Controller
         ]);
 
         $atraccio->save();
-        return redirect('/gestio/atraccions')->with('success', 'atraccio afegida');
+        return redirect('/gestio/atraccions')->with('info', 'Atraccio afegida');
     }
 
     /**
@@ -176,7 +176,7 @@ class AtraccionsController extends Controller
 
 
 
-        return redirect('/gestio/atraccions')->with('success', 'atraccio modificada');
+        return redirect('/gestio/atraccions')->with('info', 'Atraccio modificada');
 
     }
 
@@ -190,7 +190,7 @@ class AtraccionsController extends Controller
     {
         $atraccio = Atraccion::find($id);
         $atraccio->delete();
-        return redirect('/gestio/atraccions')->with('success', 'atraccio suprimida correctament');
+        return redirect('/gestio/atraccions')->with('info', 'Atraccio suprimida correctament');
 
     }
 
@@ -337,7 +337,7 @@ $user = AssignacioAtraccion::assignarNetejaFiltro();
         ]);
         $assignacio->save();
 
-        return redirect('/gestio/atraccions/assigna')->with('success', 'OK bro :)');
+        return redirect('/gestio/atraccions/assigna')->with('info', 'Assignacio creada');
     }
 
         public function assignacions()
@@ -387,7 +387,7 @@ $user = AssignacioAtraccion::assignarNetejaFiltro();
 
 
 
-            return redirect('/gestio/atraccions/assignacions')->with('success', 'Assignacio modificada correctament');
+            return redirect('/gestio/atraccions/assignacions')->with('info', 'Assignacio modificada correctament');
 
         }
 
@@ -397,7 +397,7 @@ $user = AssignacioAtraccion::assignarNetejaFiltro();
 
             $assignacio->delete();
 
-            return redirect('/gestio/atraccions/assignacions')->with('success', 'Assignacio suprimida correctament');
+            return redirect('/gestio/atraccions/assignacions')->with('info', 'Assignacio suprimida correctament');
         }
 
 

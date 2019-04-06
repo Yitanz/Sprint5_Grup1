@@ -74,7 +74,7 @@ class NoticiesController extends Controller
           'path_img' => $foto_up
       ]);
       $noticia ->save();
-      return redirect('/gestio/noticies')->with('success', 'Noticia registrada correctament');
+      return redirect('/gestio/noticies')->with('info', 'Noticia registrada correctament');
 
     }
 
@@ -137,7 +137,7 @@ class NoticiesController extends Controller
         $noticia->path_img = "/".$file_path."/".$file_name;
       }
         $noticia->save();
-        return redirect('/gestio/noticies')->with('success', 'Noticia modificada correctament');
+        return redirect('/gestio/noticies')->with('info', 'Noticia modificada correctament');
     }
 
     /**
@@ -150,6 +150,6 @@ class NoticiesController extends Controller
     {
       $noticia = noticies::find($id);
       $noticia->delete();
-      return redirect('/gestio/noticies') ->with('success', 'Noticia eliminada correctament');
+      return redirect('/gestio/noticies') ->with('info', 'Noticia eliminada correctament');
     }
 }

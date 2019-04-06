@@ -71,10 +71,10 @@ class ClientsController extends Controller
             'id_rol' => 1,
             'actiu' => 0,
         ]);
-        
+
         $usuari->save();
-        
-        return view('gestio/clients/create');
+
+        return redirect('gestio/clients/')->with('info', 'Client creat correctament');
     }
 
     /**
@@ -112,9 +112,9 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+
       $usuari = User::findOrFail($id);
-      
+
       $usuari->nom = $request->get('nom');
       $usuari->cognom1 = $request->get('cognom1');
       $usuari->cognom2 = $request->get('cognom2');
@@ -129,10 +129,10 @@ class ClientsController extends Controller
       $usuari->provincia = $request->get('provincia');
       $usuari->password = Hash::make($request->get('contrasenya'));
       $usuari->codi_postal = $request->get('cp');
-      
+
       $usuari->update();
 
-      return redirect('gestio/clients');
+      return redirect('gestio/clients')->with('info', 'Client actualitzat correctament');
     }
     /**
      * Remove the specified resource from storage.
@@ -147,6 +147,6 @@ class ClientsController extends Controller
       $usuaris->email_verified_at=null;
       $usuaris->save();
 
-      return redirect('gestio/clients');
+      return redirect('gestio/clients')->with('info', 'Client desactivat correctament');
     }
 }

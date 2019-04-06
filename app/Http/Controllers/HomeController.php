@@ -26,6 +26,8 @@ use \App\Atraccion;
 use \App\Promocions;
 use \App\User;
 use \App\TipusAtraccions;
+use \App\Contacte;
+use \App\Linia_contacte;
 
 class HomeController extends Controller
 {
@@ -173,19 +175,21 @@ class HomeController extends Controller
                   'atraccions.id as id_atra'
               ]);
 
-      /*$incidencies_fetes = Incidencia::where('id_usuari_assignat', $user->id)
-      ->where('id_estat',3)
-      ->join('tipus_prioritat', 'incidencies.id_prioritat', 'tipus_prioritat.id')
-      ->join('estat_incidencies', 'incidencies.id_estat', 'estat_incidencies.id')
+      $tiquets = Linia_Contacte::where('id_empleat',$user->id)
+      ->where('id_estat',2)
+      ->leftJoin('contacte', 'contacte.id', 'linia_contacte.id_ticket_contacte')
       ->get([
-        'incidencies.id as id',
-        'incidencies.titol as titol',
-        'incidencies.descripcio as descripcio',
-        'tipus_prioritat.nom_prioritat as nom_prioritat',
-        'estat_incidencies.nom_estat as nom_estat',
-      ]);*/
+        'contacte.id as id',
+        'contacte.nom as nom',
+        'contacte.email as email',
+        'contacte.tipus_pregunta as tipus_pregunta',
+        'contacte.missatge as missatge'
+      ]);
 
-      return view('tasques', compact(['incidencies_per_fer','assignacio']));
+
+
+
+      return view('tasques', compact(['incidencies_per_fer','assignacio','tiquets']));
     }
 
 /*Funcio que rep*/
@@ -285,7 +289,7 @@ class HomeController extends Controller
       }else {
       }
 
-      return redirect('/cistella')->with('success', 'Ticket afegit a la cistella correctament');
+      return redirect('/cistella')->with('info', 'Ticket afegit a la cistella correctament');
     }
 
     public function compra(){
@@ -326,7 +330,7 @@ class HomeController extends Controller
                 'producte' => $element_cistella->producte,
                 'quantitat' => $element_cistella->quantitat
         ]);
-        
+
         $linia_venta ->save();
         $linia_cistella_element = Linia_cistella::find($element_cistella->id_linia);
         $linia_cistella_element->delete();
@@ -390,7 +394,7 @@ class HomeController extends Controller
       //$producte->delete();
       //$atributs_producte->delete();
 
-      return redirect('/cistella')->with('success', 'Producte eliminat correctament');
+      return redirect('/cistella')->with('info', 'Producte eliminat correctament');
     }
 
     public function llistarAtraccionsPublic($id)
@@ -505,7 +509,7 @@ class HomeController extends Controller
           ]);
           $votacio->save();
 
-          return redirect('/votacions')->with('success', 'Votació realitzada correctament');
+          return redirect('/votacions')->with('info', 'Votació realitzada correctament');
 
           /*$atraccions = json_encode(DB::table('atraccions')
             ->select('atraccions.id as id', 'atraccions.nom_atraccio as title', 'atraccions.descripcio as description', 'atraccions.path as url', 'atraccions.votacions as votes', 'atraccions.path as avatar', 'atraccions.path as submissionImage')
@@ -529,5 +533,10 @@ class HomeController extends Controller
     }
     public function burger_comprar(){
       return view('restaurant/compra');
+    }
+
+
+    public function notificacionsGeneral(){
+      return view('notificacions');
     }
 }

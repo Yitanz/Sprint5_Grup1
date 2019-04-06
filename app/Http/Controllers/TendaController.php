@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
 
 class TendaController extends Controller
 {
-    
+
 	public function  indexTenda(){
 		return view ('tenda/tendaIndex');
 	}
@@ -71,7 +71,7 @@ class TendaController extends Controller
 
     //Busco ID producte
     $atributs_producte = Atributs_producte::find($id);
-    
+
     //faig l'insert a linia productes
     /*$linia_productes = new Venta_productes([
 
@@ -92,23 +92,23 @@ class TendaController extends Controller
           $cistella = DB::table('cistelles')
                         ->where('id_usuari', '=', Auth::id())
                         ->first();
-          //faig insert a linia cistella              
+          //faig insert a linia cistella
           $linia_cistella = new Linia_cistella([
               'id_cistella' => $cistella->id,
               'producte' => $producte[0]->id,
               'quantitat' => $quantitat
           ]);
-          
+
           $linia_cistella ->save();
-          
+
           /*Creem la cistella si no existeix*/
         }else {
-          
+
           //creo la cistella
           $cistella = new Cistella([
               'id_usuari' => Auth::id()
           ]);
-          
+
           $cistella ->save();
 
           //faig l'insert a linia cistella
@@ -124,10 +124,10 @@ class TendaController extends Controller
 
         //consultes laravel
         //select bo
-        
+
        /* SELECT nom,preu,foto_path_aigua from atributs_producte where foto_path_aigua is not null and id IN(select atributs from productes where id in (select producte from linia_cistelles));*/
 
 
-    return redirect('/cistella')->with('success', 'Foto afegida a la cistella correctament');
+    return redirect('/cistella')->with('info', 'Foto afegida a la cistella correctament');
   }
 }

@@ -49,7 +49,7 @@ class GestioServeisController extends Controller
           'nom' => $request->get('nom'),
       ]);
       $servei->save();
-      return redirect('gestio/GestioServeis')->with('success', 'Servei creat correctament');
+      return redirect('gestio/GestioServeis')->with('info', 'Servei creat correctament');
     }
 
     /**
@@ -93,7 +93,7 @@ class GestioServeisController extends Controller
       $servei->nom = $request->get('nom');
       $servei->save();
 
-      return redirect('/gestio/GestioServeis')->with('success', 'Servei actualitzat');
+      return redirect('/gestio/GestioServeis')->with('info', 'Servei actualitzat');
     }
 
     /**
@@ -107,6 +107,6 @@ class GestioServeisController extends Controller
       $servei = GestioServei::find($id);
       $servei->delete();
 
-      return redirect('/gestio/GestioServeis')->with('success', 'Servei eliminat.');
+      return redirect('/gestio/GestioServeis')->with('info', 'Servei eliminat.');
     }
 }
