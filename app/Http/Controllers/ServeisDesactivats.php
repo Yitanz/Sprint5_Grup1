@@ -27,4 +27,48 @@ class ServeisDesactivats extends Controller
 
     return view('gestio/ServeisDesactivats/index', compact('assignacions'));
   }
+
+  public function edit($id)
+  {
+    $assign = ServeisZones::find($id);
+
+    $treballadors = User::where('id_rol',3)
+    ->whereNotNull('email_verified_at')
+    ->get();
+
+    $zones = Zona::all();
+    $serveis = Servei::all();
+
+    return view('gestio/serveis/edit', compact(['assign','serveis','zones','treballadors']));
+  }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, $id)
+  {
+    $request->validate([
+      'seleccio_zona' => 'required',
+      'nom_servei' => 'required',
+      'data_inici_assign'=>'required',
+      'data_fi_assign'=>'required',
+      'seleccio_empleat' => 'required'
+    ]);
+
+    $servei = ServeisZones::findOrFail($id);
+
+    $servei->id_zona = $request->get('seleccio_zona');
+    $servei->id_servei = $request->get('nom_servei');
+    $servei->id_empleat = $request->get('seleccio_empleat');
+    $servei->data_inici = $request->get('data_inici_assign');
+    $servei->data_fi = $request->get('data_fi_assign');
+    $servei->id_estat = 2;
+    $servei->save();
+
+    return redirect('gestio/serveis')->with('info', 'Incidència editada correctament');
+  }
 }

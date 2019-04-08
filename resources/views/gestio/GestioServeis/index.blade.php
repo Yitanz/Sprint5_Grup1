@@ -33,7 +33,9 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-bordered table-hover table-sm">
+    <table
+        class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+        id="results_table" role="grid">
         <thead class="thead-light">
             <tr>
                 <th>ID</th>
@@ -46,14 +48,17 @@
             <tr>
                 <td>{{ $servei->id }}</td>
                 <td>{{ $servei->nom }}</td>
-                <td><a class="btn btn-primary" href="{{ route('GestioServeis.edit', $servei->id) }}">Modificar</a></td>
                 <td>
-                    <form action="{{ route('GestioServeis.destroy', $servei->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button id="confirm_delete" class="btn btn-danger" type="submit"
-                            value="Eliminar">Eliminar</button>
-                    </form>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Accions">
+                        <a class="btn btn-outline-primary"
+                            href="{{ route('serveis.edit', $servei_zona->id) }}">Modificar</a>
+                        <form action="{{ route('serveis.destroy', $servei_zona->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button id="confirm_delete" class="btn btn-outline-danger" type="submit"
+                                value="Eliminar">Eliminar</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             @endforeach
