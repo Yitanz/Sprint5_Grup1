@@ -9,6 +9,7 @@ use \App\Servei;
 use \App\User;
 use \App\Zona;
 use \App\ServeisZones;
+use \App\Rol;
 
 class ServeisController extends Controller
 {
@@ -40,15 +41,13 @@ class ServeisController extends Controller
      */
     public function create()
     {
-        $treballadors = User::where('id_rol',[4])->orWhere('id_rol',[3])
-
+        $treballadors = User::where('id_rol', '!=', 1)
         ->whereNotNull('email_verified_at')
         ->get();
 
         $zones = Zona::all();
         $serveis = Servei::all();
         return view('gestio/serveis/create', compact('serveis','zones','treballadors'));
-
     }
 
     /**
@@ -59,6 +58,12 @@ class ServeisController extends Controller
      */
     public function store(Request $request)
     {
+      $id_treballador = $request->get('seleccio_empleat');
+
+      $treballador = User::where('id', $id_treballador)->get();
+      $serveis = Servei::all();
+
+      //dd($request->get('nom_servei'));
 
       $request->validate([
           'seleccio_zona' => 'required',
@@ -76,10 +81,14 @@ class ServeisController extends Controller
           'data_fi'=> $request->get('data_fi_assign'),
           'id_estat' => 2
       ]);
-
-      $servei_zona->save();
-
-      return redirect('/gestio/serveis')->with('success', 'Assignació creada correctament');
+      if($treballador->first()->id_rol == 3 && $request->get('nom_servei') == "2"){
+        $servei_zona->save();
+        return redirect('/gestio/serveis')->with('info', 'Assignació creada correctament');
+      }elseif ($treballador->first()->id_rol == 4 && $request->get('nom_servei') == "1") {
+        $servei_zona->save();
+        return redirect('/gestio/serveis')->with('info', 'Assignació creada correctament');
+      }
+      else return redirect('/gestio/serveis/create')->with('error', 'Error: Selecciona un empleat de la secció correcta');
     }
 
     /**
@@ -103,7 +112,7 @@ class ServeisController extends Controller
     {
       $assign = ServeisZones::find($id);
 
-      $treballadors = User::where('id_rol',3,4)
+      $treballadors = User::where('id_rol',3)
       ->whereNotNull('email_verified_at')
       ->get();
 
@@ -140,7 +149,7 @@ class ServeisController extends Controller
       $servei->id_estat = 2;
       $servei->save();
 
-      return redirect('gestio/serveis')->with('success', 'Incidència editada correctament');
+      return redirect('gestio/serveis')->with('info', 'Incidència editada correctament');
     }
 
     /**
@@ -155,6 +164,6 @@ class ServeisController extends Controller
       $servei->id_estat = 3;
       $servei->save();
 
-      return redirect('gestio/serveis')->with('success', 'Servei eliminat correctament');
+      return redirect('gestio/serveis')->with('info', 'Servei eliminat');
     }
 }

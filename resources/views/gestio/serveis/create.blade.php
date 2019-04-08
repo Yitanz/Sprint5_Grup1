@@ -46,6 +46,7 @@
                         <th scope="col">Cog 1</th>
                         <th scope="col">Cog 2</th>
                         <th scope="col">DNI</th>
+                        <th scope="col">Càrrec</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
@@ -58,6 +59,13 @@
                         <td>{{ $treballador->cognom1 }}</td>
                         <td>{{ $treballador->cognom2 }}</td>
                         <td>{{ $treballador->numero_document }}</td>
+                        <td> <?php if ($treballador->id_rol == 3): ?>
+                          {{"Manteniment"}}
+                        <?php elseif ($treballador->id_rol == 4): ?>
+                          {{"Neteja"}}
+                          <?php elseif ($treballador->id_rol == 5): ?>
+                          {{"General"}}
+                        <?php endif; ?></td>
                         <td><input type="checkbox" class="form-check-input" name="seleccio_empleat"
                                 value="{{ $treballador->id }}">
                         </td>
