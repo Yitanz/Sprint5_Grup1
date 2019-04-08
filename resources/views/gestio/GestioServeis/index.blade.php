@@ -50,12 +50,12 @@
                 <td>{{ $servei->nom }}</td>
                 <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="Accions">
-                        <a class="btn btn-outline-primary"
+                        <a class="btn btn-outline-success btn-sm"
                             href="{{ route('GestioServeis.edit', $servei->id) }}">Modificar</a>
                         <form action="{{ route('GestioServeis.destroy', $servei->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button id="confirm_delete" class="btn btn-outline-danger" type="submit"
+                            <button id="confirm_delete" class="btn btn-outline-danger btn-sm" type="submit"
                                 value="Eliminar">Eliminar</button>
                         </form>
                     </div>
