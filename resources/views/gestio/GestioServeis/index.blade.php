@@ -51,8 +51,8 @@
                 <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="Accions">
                         <a class="btn btn-outline-primary"
-                            href="{{ route('serveis.edit', $servei_zona->id) }}">Modificar</a>
-                        <form action="{{ route('serveis.destroy', $servei_zona->id)}}" method="post">
+                            href="{{ route('GestioServeis.edit', $servei->id) }}">Modificar</a>
+                        <form action="{{ route('GestioServeis.destroy', $servei->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button id="confirm_delete" class="btn btn-outline-danger" type="submit"
