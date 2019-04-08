@@ -101,7 +101,51 @@
 </div>
 <!-- FI LOCALITZA -->
 </div>
+    <div class="row mt-4">
+        <div class="col-4">       
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <h3>Ultimes fotos dels nostres clients:</h3>
+            </div>
+            <div class="row">
+                <main>
+                    <div id="photos"></div>
+                </main>
+            </div>
+            <div class="col-4">       
+            </div>
+        </div> 
+    </div>
+    <style type="text/css">
 
+.fotoFlickr.mr-2 {
+    height: 60px;
+    width: 100px;
+}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
+                      "format=json&jsoncallback=?&tags=parc atraccions";
+    
+            $.getJSON(url, function(data){
+                var html = "";
+                $.each(data.items, function(i, item){
+
+
+                    html += "<a href="+item.link+"><img src=" + item.media.m + " class='fotoFlickr mr-2 mt-2'></a>";
+
+                    html = html.replace("/>", ">");
+                });
+                $("#photos").html(html);
+            });          
+        });
+    </script>
+<main>
+    <div id="photos"></div>
+</main>
 @endsection
 
 @section("footer")
