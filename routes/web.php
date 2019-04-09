@@ -48,6 +48,8 @@
  Route::any('gestio/save{id}','ContacteController@saveTicket')->name('saveTicket')->middleware(['auth','is_admin','verified']);
 
 
+//assignacio emp-zona
+Route::get('gestio/zones/assign', 'AssignEmpZonaController@index')->name('zones.assign')->middleware(['auth','is_admin','verified']);
 
    /* RUTES GRUP 1 */
    Auth::routes(['verify' => true]);

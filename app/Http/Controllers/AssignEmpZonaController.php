@@ -18,15 +18,7 @@ class AssignEmpZonaController extends Controller
    */
   public function index()
   {
-    $assignacions = AssignEmpZona::join ('zones','empleat_zona.id_zona', '=', 'zones.id')
-    ->join('users', 'empleat_zona.id_empleat', '=', 'users.id')
-    ->get ([
-      'empleat_zona.id as id',
-      'zones.nom as nom_zona',
-      'users.nom as nom_empleat',
-      'empleat_zona.data_inici as data_inici',
-      'empleat_zona.data_fi as data_fi'
-    ]);
+    $assignacions = Zona::all();
 
     return view('gestio/AssignEmpZona/index', compact('assignacions'));
   }
