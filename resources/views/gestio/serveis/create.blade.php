@@ -11,21 +11,17 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="col-md-12 px-4">
             <h5>Selecciona la Zona a assignar</h5>
         </div>
         <form class="needs-validation" method="post" action="{{ route('serveis.store') }}">
             @csrf
-            <div class="table-responsive">
-                <table
-                    class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
-                    id="results_table" role="grid">
-                    <thead class="thead-light">
+            <table class="table">
+                <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
-                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -41,20 +37,14 @@
                 </tbody>
             </table>
             <h5>Selecciona l'Empleat a assignar</h5>
-            <div class="table-responsive">
-                <table
-                    class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
-                    id="results_table" role="grid">
-                    <thead class="thead-light">
-                        <tr>
+            <table class="table">
+                <thead>
+                    <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Cog 1</th>
-                        <th scope="col">Cog 2</th>
                         <th scope="col">DNI</th>
                         <th scope="col">Càrrec</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +53,6 @@
                         <td>{{ $treballador->id }}</td>
                         <td>{{ $treballador->nom }}</td>
                         <td>{{ $treballador->cognom1 }}</td>
-                        <td>{{ $treballador->cognom2 }}</td>
                         <td>{{ $treballador->numero_document }}</td>
                         <td> <?php if ($treballador->id_rol == 3): ?>
                           {{"Manteniment"}}
@@ -83,11 +72,8 @@
     </div>
     <div class="col-md-6">
         <div class="col-md-12 px-4">
-          <div class="table-responsive">
-              <table
-                  class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
-                  id="results_table" role="grid">
-                  <thead class="thead-light">
+            <table class="table">
+                <thead>
                     <h5>Selecciona el tipus de Servei</h5>
                     <tr>
                         <th scope="col">ID</th>
