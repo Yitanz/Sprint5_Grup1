@@ -275,10 +275,10 @@ class AtraccionsController extends Controller
         return view('/gestio/atraccions/crearassignaciomantenimentdate', compact('atraccio'));
     }
 
-    public function crearAssignacioNetejaDate(Request $request, $id)
-{
-        $atraccio = Atraccion::find($id);
-        return view('/gestio/atraccions/crearassignacionetejadate', compact('atraccio'));
+      public function crearAssignacioNetejaDate(Request $request, $id)
+  {
+          $atraccio = Atraccion::find($id);
+          return view('/gestio/atraccions/crearassignacionetejadate', compact('atraccio'));
     }
 
     public function crearAssignacioNeteja(Request $request, $id)
