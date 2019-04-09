@@ -44,7 +44,7 @@
 
             <td>
             <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{{ route('AssignEmpZonaData') }}" class="btn btn-primary btn-sm">Manteniment</a>
+            <a href="{{ route('AssignEmpZonaData'), $assign->id }}" class="btn btn-primary btn-sm">Manteniment</a>
             <a href="{{ route('AssignEmpZonaData') }}" class="btn btn-primary btn-sm">Neteja</a>
             <a href="{{ route('AssignEmpZonaData') }}" class="btn btn-primary btn-sm">Atencio al client</a>
             <a href="{{ route('AssignEmpZonaData') }}" class="btn btn-primary btn-sm">Seguretat</a>

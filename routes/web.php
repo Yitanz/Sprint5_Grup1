@@ -50,8 +50,8 @@
 
 //assignacio emp-zona
 Route::get('gestio/zones/assign', 'AssignEmpZonaController@index')->name('zones.assign')->middleware(['auth','is_admin','verified']);
-Route::get ('gestio/zones/data', 'AssignEmpZonaController@viewData')->name('AssignEmpZonaData')->middleware(['auth','is_admin','verified']);
-Route::get ('gestio/zones/data/empleat/{data}', 'AssignEmpZonaController@filterEmploye')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
+Route::get ('gestio/zones/{id}/data', 'AssignEmpZonaController@viewData')->name('AssignEmpZonaData')->middleware(['auth','is_admin','verified']);
+Route::get ('gestio/zones/{id}/data/empleat/', 'AssignEmpZonaController@filterEmploye')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
 
    /* RUTES GRUP 1 */
    Auth::routes(['verify' => true]);

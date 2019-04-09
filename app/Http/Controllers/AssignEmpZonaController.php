@@ -11,11 +11,11 @@ use \App\AssignEmpZona;
 
 class AssignEmpZonaController extends Controller
 {
-  private $data_inici_global;
-
-  private $data_fi_global;
-
-
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
 
   public function index()
   {
@@ -23,17 +23,13 @@ class AssignEmpZonaController extends Controller
 
     return view('gestio/AssignEmpZona/index', compact('assignacions'));
   }
-  
-  public function viewData(){
 
-    return view('gestio/AssignEmpZona/date');
+  public function viewData(Request $request, $id){
+    $zona = zones::find($id);
+    return view('gestio/AssignEmpZona/date', compact('zona'));
 
   }
-  public function filterEmploye(Request $request, $data){
-    dd($data);
+  public function filterEmploye(Request $request){
     return view('gestio/AssignEmpZona/freeEmploye');
   }
 }
-
-
-  

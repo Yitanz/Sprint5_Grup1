@@ -5,7 +5,7 @@
   @section("menuIntranet")
   @endsection
   @section("content")
-  
+
       <style>
         .uper {
           margin-top: 40px;
@@ -40,7 +40,7 @@
                 </div>
               </div>
             </div>
-            <form >
+            <form action="{{route('filterEmploye')}}">
               @csrf
             <div class="row">
               <div class="col-4">
@@ -60,5 +60,5 @@
 </form>
 
               </div>
-          
+
   @endsection
