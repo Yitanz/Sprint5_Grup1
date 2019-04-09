@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
         <div class="col-md-12 px-4">
             <h5>Selecciona la Zona a assignar</h5>
         </div>
@@ -81,7 +81,7 @@
             </table>
             <br />
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
         <div class="col-md-12 px-4">
           <div class="table-responsive">
               <table
