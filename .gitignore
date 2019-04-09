@@ -1,18 +1,5 @@
 
 \.env
 
-vendor/moontoast/math/
-
-vendor/composer/
-
 public/vendor/telescope/
 
-vendor/laravel/
-
-config/
-
-app/Providers/
-
-composer\.json
-
-composer\.lock
