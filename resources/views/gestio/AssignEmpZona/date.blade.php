@@ -40,7 +40,7 @@
                 </div>
               </div>
             </div>
-            <form action="{{route('filterEmploye')}}">
+            <form action="{{route('filterEmploye', $zona->id)}}">
               @csrf
             <div class="row">
               <div class="col-4">

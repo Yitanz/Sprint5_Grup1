@@ -25,11 +25,13 @@ class AssignEmpZonaController extends Controller
   }
 
   public function viewData(Request $request, $id){
-    $zona = zones::find($id);
+    $zona = Zona::find($id);
     return view('gestio/AssignEmpZona/date', compact('zona'));
 
   }
   public function filterEmploye(Request $request){
-    return view('gestio/AssignEmpZona/freeEmploye');
+    $user = AssignEmpZona::assignarMantenimentFiltro();
+
+    return view('gestio/AssignEmpZona/freeEmploye', compact('user'));
   }
 }

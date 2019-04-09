@@ -34,55 +34,23 @@
       <thead class="thead-light">
         <tr>
           <td>ID</td>
-          <td>Nom Atraccio</td>
-          <td>Tipus Atraccio</td>
-          <td>Data Inauguracio</td>
-          <td>Altura Minima</td>
-          <td>Altura Maxima</td>
-          <td>Accessibilitat</td>
-          <td>Acces Express</td>
-          <td>Foto</td>
+          <td>Nom</td>
+          <td>Cognom1</td>
           <td></td>
         </tr>
     </thead>
     <tbody>
-        @foreach($atraccionetes as $atraccio)
+        @foreach($user as $users)
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="#" data-toggle="modal" data-target=""><i data-feather="image"></i></a></td>
-
+          <td>{{$users->id}}</td>
+          <td>{{$users->nom}}</td>
+          <td>{{$users->cognom1 }}</td>
             <td>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <a href="" class="btn btn-primary btn-sm">Manteniment</a>
-            <a href="" class="btn btn-primary btn-sm">Neteja</a>
-            <a href="" class="btn btn-primary btn-sm">Treballador</a>
-</div>
-          </td>
-
-        </tr>
-
-
-        @if (! is_null($atraccio->path))
-            <!-- MODAL FOTO -->
-            <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content" style="width:120%;">
-                  <div class="modal-body">
-                    <img style="width:100%" src="{{ asset($atraccio->path) }}" style="display:block;margin:auto;">
-                  </div>
-                </div>
-              </div>
+              <a href="" class="btn btn-primary btn-sm">Assignar</a>
             </div>
-            <!-- FI MODAL FOTO -->
-            @else
-            @endif
+          </td>
+        </tr>
         @endforeach
     </tbody>
   </table>
