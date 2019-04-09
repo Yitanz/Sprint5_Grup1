@@ -81,8 +81,8 @@
             </table>
             <br />
     </div>
-    <div class="col-sm-6">
-        <div class="col-sm-12 px-4">
+    <div class="col-md-8">
+        <div class="col-md-12 px-4">
           <div class="table-responsive">
               <table
                   class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
