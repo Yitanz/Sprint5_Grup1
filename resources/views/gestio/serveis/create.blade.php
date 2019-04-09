@@ -17,8 +17,11 @@
         </div>
         <form class="needs-validation" method="post" action="{{ route('serveis.store') }}">
             @csrf
-            <table class="table">
-                <thead>
+            <div class="table-responsive">
+                <table
+                    class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                    id="results_table" role="grid">
+                    <thead class="thead-light">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
@@ -38,9 +41,12 @@
                 </tbody>
             </table>
             <h5>Selecciona l'Empleat a assignar</h5>
-            <table class="table">
-                <thead>
-                    <tr>
+            <div class="table-responsive">
+                <table
+                    class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                    id="results_table" role="grid">
+                    <thead class="thead-light">
+                        <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Cog 1</th>
@@ -77,8 +83,11 @@
     </div>
     <div class="col-md-6">
         <div class="col-md-12 px-4">
-            <table class="table">
-                <thead>
+          <div class="table-responsive">
+              <table
+                  class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                  id="results_table" role="grid">
+                  <thead class="thead-light">
                     <h5>Selecciona el tipus de Servei</h5>
                     <tr>
                         <th scope="col">ID</th>
