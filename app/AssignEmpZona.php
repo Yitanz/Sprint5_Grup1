@@ -17,7 +17,8 @@ class AssignEmpZona extends Model
       'data_fi'
   ];
 
-  public static function assignarMantenimentFiltro (){
+  public static function assignarMantenimentFiltro ($data_inici, $data_fi, $id){
+
     $user = DB::select('SELECT
     *
     FROM
@@ -28,13 +29,13 @@ class AssignEmpZona extends Model
        users.id NOT IN
        (
           SELECT
-             assign_emp_atraccions.id_empleat
+             empleat_zona.id_empleat
           FROM
-             assign_emp_atraccions
-          WHERE
-             ( assign_emp_atraccions.data_inici <= "$data_inici_global" AND assign_emp_atraccions.data_fi >= "$data_fi_global")
+              empleat_zona
+              WHERE
+             ( empleat_zona.data_inici <= "$data_inici" AND empleat_zona.data_fi >= "$data_fi")
              OR
-             ( assign_emp_atraccions.data_inici >= "$data_inici_global" AND assign_emp_atraccions.data_fi <= "$data_fi_global")
+             ( empleat_zona.data_inici >= "$data_inici" AND empleat_zona.data_fi <= "$data_fi")
            )');
            return $user;
   }

@@ -22,16 +22,22 @@ class AssignEmpZonaController extends Controller
     $assignacions = Zona::all();
 
     return view('gestio/AssignEmpZona/index', compact('assignacions'));
+
   }
 
   public function viewData(Request $request, $id){
+
     $zona = Zona::find($id);
     return view('gestio/AssignEmpZona/date', compact('zona'));
 
   }
-  public function filterEmploye(Request $request){
-    $user = AssignEmpZona::assignarMantenimentFiltro();
+  public function filterEmploye(Request $request, $id){
 
-    return view('gestio/AssignEmpZona/freeEmploye', compact('user'));
+    $data_inici = $request->get('data_inici_assignacio_empleat');
+    $data_fi = $request->get('data_fi_assignacio_empleat');
+
+    $user = AssignEmpZona::assignarMantenimentFiltro($data_inici, $data_fi, $id);
+
+    return view('gestio/AssignEmpZona/freeEmploye', compact('user','data_inici', 'data_fi', 'id'));
   }
 }
