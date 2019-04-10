@@ -15,9 +15,11 @@ window.addEventListener("load", function () {
         "position": "bottom-right",
         "content": {
             "message": "Aquesta pàgina web utilitza cookies per millorar l'experiència d'usuari.",
-            "dismiss": "D'acord!",
+            "dismiss": "Accepto",
+            "deny": "No Accepto",
             "link": "Més info",
             "href": "#"
         }
+
     })
 });

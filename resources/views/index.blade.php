@@ -93,15 +93,56 @@
     </div>
   </div>
   <div class="row">
+    <!-- Div amb el mapa -->
     <div class="col-sm-12">
-      <iframe title="Localitzacio del parc"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.4047935586386!2d0.5816534201918497!3d40.70910459358563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a0fe735557799b%3A0x3fade49ba3687306!2sInstitut+Montsi%C3%A0+i+CFA+Sebasti%C3%A0+Juan+Arb%C3%B3!5e0!3m2!1sca!2ses!4v1553034764770" width="100%" height="200px" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <div id="myMap" style="position:relative;float:none;width:800px;height:400px;"></div>
     </div>
+    </br><h3>Indicacions per arribar</h3></br>
+    <div style="overflow-y:scroll; height:240px; margin-top:10%; float:none;position:relative;" id='directionsItinerary'></div>
   </div>
 </div>
 <!-- FI LOCALITZA -->
 </div>
 
+<!-- Script del mapa -->
+<script type='text/javascript'>
+        var map;
+        var directionsManager;
+
+        navigator.geolocation.getCurrentPosition(locationHandler);
+
+
+          function GetMap()
+          {
+              map = new Microsoft.Maps.Map('#myMap', {});
+
+              //Request the user's location. PARA QUE FUNCIONE BIEN EL POSITION.ALGO, HAY QUE CERRAR LA FUNCION JUSTO AL FINAL, ANTES DE GETMAP()
+              navigator.geolocation.getCurrentPosition(function (position) {
+
+                //Load the directions module.
+                Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                    //Create an instance of the directions manager.
+                    directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+                    //Create waypoints to route between.
+                    var actualWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: 'Ubicació actual', location: new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude) });
+                    directionsManager.addWaypoint(actualWaypoint);
+
+                    var univeylandiaWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: 'Univeylandia', location: new Microsoft.Maps.Location(40.709141,0.582608) });
+                    directionsManager.addWaypoint(univeylandiaWaypoint);
+
+                    //Specify the element in which the itinerary will be rendered.
+                    directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+
+                    //Calculate directions.
+                    directionsManager.calculateDirections();
+                });
+            });
+          }
+    </script>
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AjdLFBRKgbKR0sxu-uDDL_7EEKlat1mtnz71o2ZFD79hUITk14qaGZRYlKRpW8Mz' async defer></script>
+
+<!-- Fi del script del mapa -->
 @endsection
 
 @section("footer")
