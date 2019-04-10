@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use \App\User;
 use \App\Zona;
 use \App\AssignEmpZona;
+use \App\ServeisZones;
 
 class AssignEmpZonaController extends Controller
 {
@@ -37,7 +38,25 @@ class AssignEmpZonaController extends Controller
     $data_fi = $request->get('data_fi_assignacio_empleat');
 
     $user = AssignEmpZona::assignarMantenimentFiltro($data_inici, $data_fi, $id);
+    $id_zona = Zona::find($id);
+    
+    return view('gestio/AssignEmpZona/freeEmploye', compact('user','data_inici', 'data_fi', 'id_zona'));
+  }
 
-    return view('gestio/AssignEmpZona/freeEmploye', compact('user','data_inici', 'data_fi', 'id'));
+  public function saveAssign (Request $request, $id){
+        
+        $AssignEmpZona = new ServeisZones([
+            'id_zona' => $request->get('id_zona'),
+            'id_servei' => $request->get(''),
+            'id_empleat' => $request->get('id_empleat'),
+            'data_inici' => $request->get('data_inici_modal'),
+            'data_fi' => $request->get('data_fi_modal'),
+            'id_estat' => 1,
+        ]);
+
+        $AssignEmpZona->save();
+
+    return view('gestio/AssignEmpZona/freeEmploye');
+
   }
 }

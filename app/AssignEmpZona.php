@@ -37,6 +37,7 @@ class AssignEmpZona extends Model
              OR
              ( empleat_zona.data_inici >= "$data_inici" AND empleat_zona.data_fi <= "$data_fi")
            )');
+    
            return $user;
   }
 
