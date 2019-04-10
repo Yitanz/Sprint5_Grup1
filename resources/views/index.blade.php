@@ -102,7 +102,7 @@
 <!-- FI LOCALITZA -->
 </div>
     <div class="row mt-4">
-        <div class="col-4">       
+        <div class="col-4">
         </div>
         <div class="col-4">
             <div class="row">
@@ -113,9 +113,9 @@
                     <div id="photos"></div>
                 </main>
             </div>
-            <div class="col-4">       
+            <div class="col-4">
             </div>
-        </div> 
+        </div>
     </div>
     <style type="text/css">
 
@@ -129,7 +129,7 @@
     $(document).ready(function(){
             var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
                       "format=json&jsoncallback=?&tags=parc atraccions";
-    
+
             $.getJSON(url, function(data){
                 var html = "";
                 $.each(data.items, function(i, item){
@@ -140,7 +140,7 @@
                     html = html.replace("/>", ">");
                 });
                 $("#photos").html(html);
-            });          
+            });
         });
     </script>
 <main>
