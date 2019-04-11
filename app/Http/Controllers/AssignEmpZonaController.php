@@ -75,4 +75,5 @@ class AssignEmpZonaController extends Controller
 
     return view ('gestio/AssignEmpZona/llistarAssign', compact('assign'));
   }
+  
 }

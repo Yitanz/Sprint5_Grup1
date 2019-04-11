@@ -54,4 +54,104 @@ class AssignEmpZona extends Model
  
   }
 
+    public static function assignarNetejaFiltro ($data_inici, $data_fi){
+   
+   
+    $user = DB::select('SELECT
+    *
+    FROM
+       users
+    WHERE
+        users.id_rol = 4
+        AND
+       users.id NOT IN
+       (
+          SELECT
+            serveis_zones.id_empleat
+          FROM
+              serveis_zones
+              WHERE
+             ( serveis_zones.data_inici <= "'.$data_inici.'" AND serveis_zones.data_fi >= "'.$data_fi.'")
+             OR
+             ( serveis_zones.data_inici >= "'.$data_inici.'" AND serveis_zones.data_fi <= "'.$data_fi.'")
+           )');
+    
+           return $user;
+  }
+
+    public static function assignarAtencioFiltro ($data_inici, $data_fi){
+   
+   
+    $user = DB::select('SELECT
+    *
+    FROM
+       users
+    WHERE
+        users.id_rol = 6
+        AND
+       users.id NOT IN
+       (
+          SELECT
+            serveis_zones.id_empleat
+          FROM
+              serveis_zones
+              WHERE
+             ( serveis_zones.data_inici <= "'.$data_inici.'" AND serveis_zones.data_fi >= "'.$data_fi.'")
+             OR
+             ( serveis_zones.data_inici >= "'.$data_inici.'" AND serveis_zones.data_fi <= "'.$data_fi.'")
+           )');
+    
+           return $user;
+  }
+
+    public static function assignarSeguretatFiltro ($data_inici, $data_fi){
+   
+   
+    $user = DB::select('SELECT
+    *
+    FROM
+       users
+    WHERE
+        users.id_rol = 7
+        AND
+       users.id NOT IN
+       (
+          SELECT
+            serveis_zones.id_empleat
+          FROM
+              serveis_zones
+              WHERE
+             ( serveis_zones.data_inici <= "'.$data_inici.'" AND serveis_zones.data_fi >= "'.$data_fi.'")
+             OR
+             ( serveis_zones.data_inici >= "'.$data_inici.'" AND serveis_zones.data_fi <= "'.$data_fi.'")
+           )');
+    
+           return $user;
+  }
+
+    public static function assignarShowFiltro ($data_inici, $data_fi){
+   
+   
+    $user = DB::select('SELECT
+    *
+    FROM
+       users
+    WHERE
+        users.id_rol = 8
+        AND
+       users.id NOT IN
+       (
+          SELECT
+            serveis_zones.id_empleat
+          FROM
+              serveis_zones
+              WHERE
+             ( serveis_zones.data_inici <= "'.$data_inici.'" AND serveis_zones.data_fi >= "'.$data_fi.'")
+             OR
+             ( serveis_zones.data_inici >= "'.$data_inici.'" AND serveis_zones.data_fi <= "'.$data_fi.'")
+           )');
+    
+           return $user;
+  }
+
 }
