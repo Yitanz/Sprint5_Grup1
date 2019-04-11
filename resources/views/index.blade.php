@@ -149,6 +149,7 @@
     
     <div id="photos"></div>
 </main>
+
 <!--El chat-->
 <div class="chatbox chatbox--tray chatbox--empty">
     <div class="chatbox__title">
@@ -167,24 +168,15 @@
     </div>
     <div class="chatbox__body">
         <div class="chatbox__body__message chatbox__body__message--left">
+            @dd($chat)
+         @foreach($chat as $chats)
             <img src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="Picture">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="chatbox__body__message chatbox__body__message--right">
-            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/arashmil/128.jpg" alt="Picture">
-            <p>Nulla vel turpis vulputate, tincidunt lectus sed, porta arcu.</p>
-        </div>
-        <div class="chatbox__body__message chatbox__body__message--left">
-            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="Picture">
-            <p>Curabitur consequat nisl suscipit odio porta, ornare blandit ante maximus.</p>
-        </div>
-        <div class="chatbox__body__message chatbox__body__message--right">
-            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/arashmil/128.jpg" alt="Picture">
-            <p>Cras dui massa, placerat vel sapien sed, fringilla molestie justo.</p>
-        </div>
-        <div class="chatbox__body__message chatbox__body__message--right">
-            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/arashmil/128.jpg" alt="Picture">
-            <p>Praesent a gravida urna. Mauris eleifend, tellus ac fringilla imperdiet, odio dolor sodales libero, vel mattis elit mauris id erat. Phasellus leo nisi, convallis in euismod at, consectetur commodo urna.</p>
+            <p>hola</p>
+            
+            <p>Sense missatges</p>
+            @endforeach
+
+
         </div>
     </div>
     <form class="chatbox__credentials">
@@ -196,7 +188,7 @@
             <label for="inputEmail">Correu:</label>
             <input type="email" class="form-control" id="inputEmail" required>
         </div>
-        <button type="submit" class="btn btn-success btn-block">Accedir</button>
+        <button type="submit" class="btn btn-success btn-block">Accedir </button>
     </form>
     <textarea class="chatbox__message" placeholder="Write something interesting"></textarea>
 </div>

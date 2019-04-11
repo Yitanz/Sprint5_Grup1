@@ -28,6 +28,7 @@ use \App\User;
 use \App\TipusAtraccions;
 use \App\Contacte;
 use \App\Linia_contacte;
+use \App\Chat;
 
 class HomeController extends Controller
 {
@@ -62,7 +63,12 @@ class HomeController extends Controller
           ->select('noticies.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img')
           ->orderBy('id', 'DESC')
           ->paginate(2);
-          return view('index', compact('promocions'));
+
+        $chat = DB::table('chat')
+        ->select('msg')
+        ->orderBy('timestamp');
+
+          return view('index', compact('promocions', 'chat'));
     }
 
     public function atraccions(){
