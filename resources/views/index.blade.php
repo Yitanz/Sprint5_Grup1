@@ -196,7 +196,7 @@
             <label for="inputEmail">Correu:</label>
             <input type="email" class="form-control" id="inputEmail" required>
         </div>
-        <button type="submit" class="btn btn-success btn-block">Enter Chat</button>
+        <button type="submit" class="btn btn-success btn-block">Accedir</button>
     </form>
     <textarea class="chatbox__message" placeholder="Write something interesting"></textarea>
 </div>
