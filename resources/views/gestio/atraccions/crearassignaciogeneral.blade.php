@@ -105,12 +105,10 @@
       </div>
   </div>
 </div>
-
-                    @endforeach
-                    </tbody>
-                </table>
-
-            </div>
+@endforeach
+</tbody>
+</table>
+</div>
 
 
 @endsection
