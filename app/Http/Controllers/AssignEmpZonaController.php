@@ -37,7 +37,7 @@ class AssignEmpZonaController extends Controller
     $data_inici = $request->get('data_inici_assignacio_empleat');
     $data_fi = $request->get('data_fi_assignacio_empleat');
 
-    $user = AssignEmpZona::assignarMantenimentFiltro($data_inici, $data_fi, $id);
+    $user = AssignEmpZona::assignarMantenimentFiltro($data_inici, $data_fi);
     $id_zona = Zona::find($id);
     
     return view('gestio/AssignEmpZona/freeEmploye', compact('user','data_inici', 'data_fi', 'id_zona'));
