@@ -17,7 +17,7 @@ class AssignEmpZona extends Model
       'data_fi'
   ];
 
-  public static function assignarMantenimentFiltro ($data_inici, $data_fi, $id){
+  public static function assignarMantenimentFiltro ($data_inici, $data_fi){
    
    
     $user = DB::select('SELECT
