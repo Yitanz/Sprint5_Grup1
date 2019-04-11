@@ -48,7 +48,7 @@
  Route::any('gestio/save{id}','ContacteController@saveTicket')->name('saveTicket')->middleware(['auth','is_admin','verified']);
 
 
-//assignacio emp-zona
+//assignacio emp-zona Manteniment
 
 Route::get('gestio/zones/assign', 'AssignEmpZonaController@index')->name('zones.assign')->middleware(['auth','is_admin','verified']);
 Route::get ('gestio/zones/{id}/data', 'AssignEmpZonaController@viewData')->name('AssignEmpZonaData')->middleware(['auth','is_admin','verified']);
@@ -56,6 +56,23 @@ Route::get ('gestio/zones/{id}/data/empleat/', 'AssignEmpZonaController@filterEm
 Route::any('/gestio/zones/crearassignaciomanteniment/guardar/{id}', 'AssignEmpZonaController@saveAssign')->name('zones.saveAssign')->middleware(['auth','is_admin','verified']);
 Route::get ('/gestio/zones/llistarAssign', 'AssignEmpZonaController@listAssign')->name('zones.list')->middleware(['auth','is_admin','verified']);;
 Route::get('/gestio/zones/eliminarAssign/{id}', 'AssignEmpZonaController@deleteAssign')->name('zones.emp.delete')->middleware(['auth','is_admin','verified']);
+
+//assignacio emp-zona neteja
+Route::get ('gestio/zones/{id}/data/neteja', 'AssignEmpZonaController@viewDataNeteja')->name('AssignEmpZonaDataNeteja')->middleware(['auth','is_admin','verified']);
+Route::get ('gestio/zones/{id}/data/empleat/neteja', 'AssignEmpZonaController@filterEmployeNeteja')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
+/*Route::get ('gestio/zones/{id}/data/empleat/', 'AssignEmpZonaController@filterEmploye')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
+Route::any('/gestio/zones/crearassignaciomanteniment/guardar/{id}', 'AssignEmpZonaController@saveAssign')->name('zones.saveAssign')->middleware(['auth','is_admin','verified']);
+Route::get ('/gestio/zones/llistarAssign', 'AssignEmpZonaController@listAssign')->name('zones.list')->middleware(['auth','is_admin','verified']);;
+Route::get('/gestio/zones/eliminarAssign/{id}', 'AssignEmpZonaController@deleteAssign')->name('zones.emp.delete')->middleware(['auth','is_admin','verified']);
+
+//assignacio emp-zona Atencio al client
+/*
+Route::get ('gestio/zones/{id}/data', 'AssignEmpZonaController@viewData')->name('AssignEmpZonaData')->middleware(['auth','is_admin','verified']);
+Route::get ('gestio/zones/{id}/data/empleat/', 'AssignEmpZonaController@filterEmploye')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
+Route::any('/gestio/zones/crearassignaciomanteniment/guardar/{id}', 'AssignEmpZonaController@saveAssign')->name('zones.saveAssign')->middleware(['auth','is_admin','verified']);
+Route::get ('/gestio/zones/llistarAssign', 'AssignEmpZonaController@listAssign')->name('zones.list')->middleware(['auth','is_admin','verified']);;
+Route::get('/gestio/zones/eliminarAssign/{id}', 'AssignEmpZonaController@deleteAssign')->name('zones.emp.delete')->middleware(['auth','is_admin','verified']);*/
+
 
 
    /* RUTES GRUP 1 */

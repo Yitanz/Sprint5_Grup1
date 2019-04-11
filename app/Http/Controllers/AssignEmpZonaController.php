@@ -32,6 +32,7 @@ class AssignEmpZonaController extends Controller
     return view('gestio/AssignEmpZona/date', compact('zona'));
 
   }
+
   public function filterEmploye(Request $request, $id){
 
     $data_inici = $request->get('data_inici_assignacio_empleat');
@@ -57,6 +58,7 @@ class AssignEmpZonaController extends Controller
         return redirect('gestio/AssignEmpZona')->with('success', 'Assignacio suprimida correctament');
 
   }
+
   public function listAssign (){
 
     $assign = AssignEmpZona::llistarEmpassign();
@@ -74,6 +76,28 @@ class AssignEmpZonaController extends Controller
     $assign = AssignEmpZona::llistarEmpassign();
 
     return view ('gestio/AssignEmpZona/llistarAssign', compact('assign'));
+  }
+
+  public function viewDataNeteja(Request $request, $id){
+
+    $zona = Zona::find($id);
+    return view('gestio/AssignEmpZona/dateNeteja', compact('zona'));
+
+  }
+
+  public function filterEmployeNeteja(Request $request, $id){
+    
+    $data_inici = $request->get('data_inici_assignacio_empleat');
+    $data_fi = $request->get('data_fi_assignacio_empleat');
+
+    $user = AssignEmpZona::assignarNetejaFiltro ($data_inici, $data_fi);
+    $id_zona = Zona::find($id);
+    
+    return view('gestio/AssignEmpZona/freeEmployeNeteja', compact('user','data_inici', 'data_fi', 'id_zona'));
+  }
+
+  public function saveAssignNeteja(){
+    
   }
   
 }
