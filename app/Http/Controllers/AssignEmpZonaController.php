@@ -57,4 +57,11 @@ class AssignEmpZonaController extends Controller
         return redirect('gestio/AssignEmpZona')->with('success', 'Assignacio suprimida correctament');
 
   }
+  public function listAssign (){
+
+    $assign = AssignEmpZona::llistarEmpassign();
+    dd($assign);
+    return view ('gestio/AssignEmpZona/llistarAssign', compact('assign'));
+
+  }
 }

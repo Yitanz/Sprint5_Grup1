@@ -33,23 +33,22 @@
                 id="results_table" role="grid">
       <thead class="thead-light">
         <tr>
-          <td>ID</td>
+          <td>Zona</td>
           <td>Nom</td>
           <td>Cognom1</td>
-          <td></td>
+          <td>Data Inici</td>
+          <td>Data Fi</td>
+
         </tr>
     </thead>
     <tbody>
     
-        @foreach($user as $users)
+        @foreach($assign as $assignar)
         <tr>
-          <td>{{$users->id}}</td>
-          <td>{{$users->nom}}</td>
-          <td>{{$users->cognom1 }}</td>
-            <td>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ModalEmpleat{{$users->id}}">Assignar</a>
-            </div>
-          </td>
+          <td>{{$assignar->id}}</td>
+          <td>{{$assignar->nom}}</td>
+          <td>{{$assignar->cognom1 }}</td>
+          <td>{{$assignar->data_inici }}</td>
+          <td>{{$assignar->data_fi }}</td>
         </tr>
 @endsection

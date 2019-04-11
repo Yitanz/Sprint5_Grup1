@@ -53,6 +53,7 @@ Route::get('gestio/zones/assign', 'AssignEmpZonaController@index')->name('zones.
 Route::get ('gestio/zones/{id}/data', 'AssignEmpZonaController@viewData')->name('AssignEmpZonaData')->middleware(['auth','is_admin','verified']);
 Route::get ('gestio/zones/{id}/data/empleat/', 'AssignEmpZonaController@filterEmploye')->name('filterEmploye')->middleware(['auth','is_admin','verified']);
 Route::any('/gestio/zones/crearassignaciomanteniment/guardar/{id}', 'AssignEmpZonaController@saveAssign')->name('zones.saveAssign')->middleware(['auth','is_admin','verified']);
+Route::get ('/gestio/zones/llistarAssign', 'AssignEmpZonaController@listAssign')->name('zones.list')->middleware(['auth','is_admin','verified']);;
 
    /* RUTES GRUP 1 */
    Auth::routes(['verify' => true]);

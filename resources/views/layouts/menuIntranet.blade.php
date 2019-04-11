@@ -129,6 +129,9 @@
             <li>
               <a class="nav-link nav-interior {{ request()->routeIs('zones.assign') ? 'active' : ''}}" href="{{ URL::route('zones.assign')}}"><span data-feather="file-text"></span>Assignar Empleat</a>
             </li>
+            <li>
+              <a class="nav-link nav-interior {{ request()->routeIs('zones.list') ? 'active' : ''}}" href="{{ URL::route('zones.list')}}"><span data-feather="file-text"></span>Llistar Assignacion Zones</a>
+            </li>
           </ul>
 
 
