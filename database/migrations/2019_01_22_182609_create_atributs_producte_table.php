@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateAtributsProducteTable extends Migration
+class CreateUserEntraAtraccioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +11,18 @@ class CreateAtributsProducteTable extends Migration
      */
     public function up()
     {
-        Schema::create('atributs_producte', function (Blueprint $table) {
+        Schema::create('user_entra_atraccio', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom')->references('id')->on('tipus_producte');;
-            $table->string('mida')->nullable();
-            $table->string('tickets_viatges')->nullable();
-            $table->string('foto_path')->nullable();
-            $table->string('foto_path_aigua')->nullable();
-            $table->integer('preu');
-            $table->string('id_atraccio')->nullable();
+            $table->unsignedInteger('id_usuari')->nullable();
+            $table->unsignedInteger('id_atraccio');
+            $table->unsignedInteger('id_ticket');
+            $table->foreign('id_usuari')->references('id')->on('users');
+            $table->foreign('id_ticket')->references('id')->on('productes');
+            $table->foreign('id_atraccio')->references('id')->on('atraccions');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -34,6 +30,6 @@ class CreateAtributsProducteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('atributs_producte');
+        Schema::dropIfExists('user_entra_atraccio');
     }
 }

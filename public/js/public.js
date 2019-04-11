@@ -19,7 +19,6 @@ window.addEventListener("load", function () {
             "deny": "No Accepto",
             "link": "Més info",
             "href": "#"
-        }
-
+        },
     })
 });

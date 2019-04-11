@@ -21,6 +21,8 @@
  Route::get('/perfil',"HomeController@perfil")->name('perfil')->middleware(['auth','verified']);
  Route::get('/incidencia',"HomeController@incidencia")->name('incidencia')->middleware(['auth','verified']);
  Route::get('/mes', "HomeController@mes")->name('mes');
+ Route::get('/perfil',"PerfilController@index")->name('perfil')->middleware(['auth','verified']);
+ Route::get('/perfil/download/{id}','PerfilController@imgDownload')->middleware(['auth','verified']);
  Route::get('/pizzeria',"HomeController@pizzeria")->name('pizzeria');
  Route::get('/faq',"HomeController@faq")->name('faq');
  Route::get('/multimedia',"HomeController@multimedia")->name('multimedia');
@@ -75,6 +77,8 @@
  Route::get('/tasques','HomeController@tasques')->name('tasques')->middleware(['auth','is_worker','verified']);
 
  Route::patch('/tasques/{id}', 'IncidenciesController@conclude')->name('incidencies.conclude')->middleware(['auth','is_worker','verified']);
+
+ Route::resource('views/perfil', 'PerfilController')->middleware(['auth','is_admin','verified']);
 
  /* RUTES GRUP 2 */
  Route::any('/gestio/atraccions/crearassignaciomantenimentdate/{id}','AtraccionsController@crearAssignacioMantenimentDate')->name('atraccions.crearassignaciomantenimentdate')->middleware(['auth','is_admin','verified']);
