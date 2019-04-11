@@ -60,8 +60,19 @@ class AssignEmpZonaController extends Controller
   public function listAssign (){
 
     $assign = AssignEmpZona::llistarEmpassign();
-    dd($assign);
     return view ('gestio/AssignEmpZona/llistarAssign', compact('assign'));
 
+  }
+
+  public function deleteAssign ($id){
+
+
+    $assignacio = AssignEmpZona::find($id);
+
+    $assignacio->delete();
+
+    $assign = AssignEmpZona::llistarEmpassign();
+
+    return view ('gestio/AssignEmpZona/llistarAssign', compact('assign'));
   }
 }

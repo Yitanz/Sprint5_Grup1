@@ -55,7 +55,7 @@
                         <div class="btn-group btn-sm" role="group" aria-label="Basic example">
                           <a href="{{ route('atraccions.assignacions.editAssignacions',$assigna->id)}}" class="btn btn-primary btn-sm">Modificar</a>
 
-                            <form action="{{ route('atraccions.assignacions.destroy', $assigna->id)}}" method="post">
+                            <form action="{{ route('zones.delete', $assigna->id)}}" method="get">
                                 @csrf
                                 @method('DELETE')
                                 <button id="confirm_delete" class="btn btn-danger btn-sm" type="submit">Suprimir</button>

@@ -45,13 +45,10 @@ class AssignEmpZona extends Model
   public static function llistarEmpassign (){
     
     $Assignacions = DB::select('SELECT 
-        serveis_zones.id, zones.nom, users.nom, users.cognom1, serveis_zones.data_inici, serveis_zones.data_fi 
-          FROM 
-            zones, users, serveis_zones 
-              WHERE 
-                serveis_zones.id_empleat = users.id 
-                AND 
-                  serveis_zones.id_zona = zones.id');
+      serveis_zones.id, zones.nom as nom_zona, users.nom, users.cognom1, serveis_zones.data_inici, serveis_zones.data_fi 
+      FROM zones, users, serveis_zones 
+      WHERE serveis_zones.id_empleat = users.id 
+      AND serveis_zones.id_zona = zones.id');
 
     return $Assignacions;
  
