@@ -135,7 +135,7 @@ class ServeisController extends Controller
       $servei->id_empleat = $request->get('seleccio_empleat');
       $servei->data_inici = $request->get('data_inici_assign');
       $servei->data_fi = $request->get('data_fi_assign');
-      $servei->id_estat = 2;
+
       $servei->save();
 
       return redirect('gestio/serveis')->with('success', 'Incidència editada correctament');
