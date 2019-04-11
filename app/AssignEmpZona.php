@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class AssignEmpZona extends Model
 {
-  protected $table = 'empleat_zona';
+  protected $table = 'serveis_zones';
 
   protected $fillable = [
       'id_zona',
@@ -18,24 +18,25 @@ class AssignEmpZona extends Model
   ];
 
   public static function assignarMantenimentFiltro ($data_inici, $data_fi, $id){
-
+   
+   
     $user = DB::select('SELECT
     *
     FROM
        users
     WHERE
-        users.id_rol = "3"
+        users.id_rol = 3
         AND
        users.id NOT IN
        (
           SELECT
-             empleat_zona.id_empleat
+            serveis_zones.id_empleat
           FROM
-              empleat_zona
+              serveis_zones
               WHERE
-             ( empleat_zona.data_inici <= "$data_inici" AND empleat_zona.data_fi >= "$data_fi")
+             ( serveis_zones.data_inici <= "'.$data_inici.'" AND serveis_zones.data_fi >= "'.$data_fi.'")
              OR
-             ( empleat_zona.data_inici >= "$data_inici" AND empleat_zona.data_fi <= "$data_fi")
+             ( serveis_zones.data_inici >= "'.$data_inici.'" AND serveis_zones.data_fi <= "'.$data_fi.'")
            )');
     
            return $user;

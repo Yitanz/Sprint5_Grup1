@@ -47,16 +47,14 @@ class AssignEmpZonaController extends Controller
         
         $AssignEmpZona = new ServeisZones([
             'id_zona' => $request->get('id_zona'),
-            'id_servei' => $request->get(''),
+            'id_servei' => 2,
             'id_empleat' => $request->get('id_empleat'),
             'data_inici' => $request->get('data_inici_modal'),
             'data_fi' => $request->get('data_fi_modal'),
-            'id_estat' => 1,
         ]);
 
         $AssignEmpZona->save();
-
-    return view('gestio/AssignEmpZona/freeEmploye');
+        return redirect('gestio/AssignEmpZona')->with('success', 'Assignacio suprimida correctament');
 
   }
 }

@@ -40,6 +40,7 @@
         </tr>
     </thead>
     <tbody>
+    
         @foreach($user as $users)
         <tr>
           <td>{{$users->id}}</td>
@@ -61,7 +62,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form <!--action="{{ route('zones.saveAssign', $id_zona->id) }}-->>
+              <form action="{{ route('zones.saveAssign', $id_zona->id) }}">
               @csrf
               <div class="modal-body">
                 <div class="row">
