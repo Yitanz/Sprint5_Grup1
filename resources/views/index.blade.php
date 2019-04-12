@@ -146,9 +146,10 @@
         });
     </script>
 <main>
-    
+
     <div id="photos"></div>
 </main>
+    </div>
 
 <!--El chat-->
 <div class="chatbox chatbox--tray chatbox--empty">
@@ -168,17 +169,22 @@
     </div>
     <div class="chatbox__body">
         <div class="chatbox__body__message chatbox__body__message--left">
-            @dd($chat)
-         @foreach($chat as $chats)
+
+         @forelse($chat as $chats)
+
             <img src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="Picture">
-            <p>hola</p>
-            
-            <p>Sense missatges</p>
-            @endforeach
+            <p>{{ $chats->msg }}</p>
+
+            @empty
+            <p>sense missatges</p>
+
+            @endforelse
 
 
         </div>
     </div>
+
+    <!--login al chat-->
     <form class="chatbox__credentials">
         <div class="form-group">
             <label for="inputName">Nom:</label>
@@ -190,6 +196,8 @@
         </div>
         <button type="submit" class="btn btn-success btn-block">Accedir </button>
     </form>
+
+    <!--enviar-->
     <textarea class="chatbox__message" placeholder="Write something interesting"></textarea>
 </div>
 

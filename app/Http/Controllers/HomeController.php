@@ -56,19 +56,17 @@ class HomeController extends Controller
         ->select('noticies.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img', 'categories.nom as categoria', 'categories.id as catId')
         ->orderBy('id', 'DESC')
         ->paginate(2);
-        return view('index', compact('noticies'));
 
         $promocions = DB::table('promocions')
-          ->join('users', 'users.id', '=', 'noticies.id_usuari')
-          ->select('noticies.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img')
+          ->join('users', 'users.id', '=', 'promocions.id_usuari')
+          ->select('promocions.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img')
           ->orderBy('id', 'DESC')
           ->paginate(2);
 
-        $chat = DB::table('chat')
-        ->select('msg')
-        ->orderBy('timestamp');
+          $chat = Chat::all();
 
-          return view('index', compact('promocions', 'chat'));
+
+          return view('index', compact('noticies','promocions','chat'));
     }
 
     public function atraccions(){
