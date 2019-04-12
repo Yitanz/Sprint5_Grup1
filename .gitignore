@@ -1,2 +1,18 @@
 
 .env
+
+vendor/laravel/telescope/
+
+vendor/moontoast/math/CHANGELOG\.md
+
+vendor/moontoast/math/composer\.json
+
+vendor/moontoast/math/LICENSE
+
+vendor/moontoast/math/NOTICE
+
+vendor/moontoast/math/README\.md
+
+vendor/moontoast/math/src/Moontoast/Math/BigNumber\.php
+
+vendor/moontoast/math/src/Moontoast/Math/Exception/ArithmeticException\.php
