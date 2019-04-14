@@ -20,6 +20,7 @@
 </div>
 @endif
 
+<!-- Formulari per agafar les dades per a crear zones -->
 <form method="post" action="{{ route('zones.store') }}">
     @csrf
     <div class="form-group">

@@ -31,6 +31,7 @@
     </div>
 </div>
 
+<!-- Taula per a mostrar les promocions existents -->
 <div class="table-responsive">
     <table
         class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"

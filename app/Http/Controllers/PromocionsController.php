@@ -17,22 +17,22 @@ use \App\Promocions;
 class PromocionsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostra una llista amb els registres
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-      $promocions = DB::table('promocions')
-        ->join('users', 'users.id', '=', 'promocions.id_usuari')
+      $promocions = Promocions::join('users', 'users.id', '=', 'promocions.id_usuari')
         ->select('promocions.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img')
         ->orderBy('id', 'DESC')
         ->paginate(10);
       return view('gestio.promocions.index', compact('promocions'));
+
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra un formulari per a crear registres
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,7 +42,7 @@ class PromocionsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.-
+     * Guarda registres nous
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -74,7 +74,7 @@ class PromocionsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostra el registre especificat
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -87,7 +87,7 @@ class PromocionsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     *  Mostra el formulari per editar el registre
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -100,7 +100,7 @@ class PromocionsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualitza el registre especificat
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -133,7 +133,7 @@ class PromocionsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina el registre especificat de la BBDD
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

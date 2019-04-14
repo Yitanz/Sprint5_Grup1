@@ -9,7 +9,7 @@ use Auth;
 class ZonesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostra una llista amb els registres
      *
      * @return \Illuminate\Http\Response
      */
@@ -22,7 +22,7 @@ class ZonesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra un formulari per a crear registres
      *
      * @return \Illuminate\Http\Response
      */
@@ -32,7 +32,7 @@ class ZonesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guarda registres nous
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -53,18 +53,7 @@ class ZonesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Mostra el formulari per editar el registre
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -77,7 +66,7 @@ class ZonesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualitza el registre especificat
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -97,7 +86,7 @@ class ZonesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina el registre especificat de la BBDD
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

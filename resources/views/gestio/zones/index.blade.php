@@ -32,6 +32,7 @@
     </div>
 </div>
 
+<!-- Taula per a mostrar totes les zones -->
 <div class="table-responsive">
     <table
         class="table table-bordered table-hover table-sm dt-responsive nowrap dataTable no-footer dtr-inline collapsed"

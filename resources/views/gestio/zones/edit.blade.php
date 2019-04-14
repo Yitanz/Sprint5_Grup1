@@ -25,6 +25,7 @@
         </ul>
       </div>
     @endif
+    <!-- Formulari per agafar les dades per a modificar zones -->
       <form method="post" action="{{ route('zones.update', $zona->id) }}">
         @method('PATCH')
         @csrf

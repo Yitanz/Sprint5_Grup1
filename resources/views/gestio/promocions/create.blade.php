@@ -11,6 +11,7 @@
     <h1 class="h2">Registrar promoció</h1>
 </div>
 
+    <!-- Formulari per agafar les dades per a crear una nova promocio -->
     <form class="needs-validation" method="post" action="{{ route('promocions.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">

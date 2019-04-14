@@ -10,6 +10,7 @@
     <h1 class="h2">Editar promoció</h1>
 </div>
 
+<!-- Formulari per editar una promoció -->
 <form class="needs-validation" method="post" action="{{ route('promocions.update', $promocio->id)}}"
     enctype="multipart/form-data">
     @method('PATCH')
