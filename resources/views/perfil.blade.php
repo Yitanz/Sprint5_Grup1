@@ -27,7 +27,6 @@
                       <img src="{{ asset('img/bart.jpg') }}" class="rounded-circle" alt="profile-img" style="max-width: 100%;height: auto;">
                   </div>
                   <ul class="list-group list-group-flush">
-                    $iduser
                       <li class="list-group-item"><strong>Nom: </strong>{{ Auth::user()->nom }}</li>
                       <li class="list-group-item"><strong>Cognoms: </strong>{{ Auth::user()->cognom1 }} {{ Auth::user()->cognom2 }}</li>
                       <li class="list-group-item"><strong>Data naixement: </strong>{{ Auth::user()->data_naixement }}</li>
@@ -36,7 +35,8 @@
                       <li class="list-group-item"><strong>Telèfon: </strong>{{ Auth::user()->telefon }}</li>
                   </ul>
                   <div class="card-body">
-                      <a href="#" class="btn btn-primary">Modificar</a>
+                    <a class="btn btn-primary"
+                        href="{{ route('perfil.edit', Auth::user()->id) }}">Modificar</a>
                       <form action="{{ route('perfil.destroy', Auth::user()->id)}}" method="post">
                           @csrf
                           @method('DELETE')

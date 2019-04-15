@@ -80,6 +80,8 @@
 
  Route::resource('views/perfil', 'PerfilController')->middleware(['auth','is_admin','verified']);
 
+ Route::post('views/perfil/{id}','PerfilController@update');
+
  /* RUTES GRUP 2 */
  Route::any('/gestio/atraccions/crearassignaciomantenimentdate/{id}','AtraccionsController@crearAssignacioMantenimentDate')->name('atraccions.crearassignaciomantenimentdate')->middleware(['auth','is_admin','verified']);
 

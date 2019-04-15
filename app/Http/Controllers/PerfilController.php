@@ -11,6 +11,7 @@ use \App\User_entra_atraccio;
 use \App\Venta_productes;
 use \App\producte;
 use \App\Atributs_producte;
+use Illuminate\Support\Facades\Hash;
 class PerfilController extends Controller
 {
     /**
@@ -75,6 +76,35 @@ class PerfilController extends Controller
     {
       $foto = Atributs_producte::find($id);
       return Response::download($foto->foto_path);
+    }
+
+    public function edit($id)
+    {
+       $perfil = User::findOrFail($id);
+
+       return view ('perfil/edit', compact('perfil'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+      $perfil = User::findOrFail($id);
+
+      $perfil->nom = $request->get('nom');
+      $perfil->cognom1 = $request->get('cognom1');
+      $perfil->cognom2 = $request->get('cognom2');
+      $perfil->telefon = $request->get('telefon');
+      $perfil->adreca = $request->get('adreca');
+      $perfil->ciutat = $request->get('ciutat');
+      $perfil->provincia = $request->get('provincia');
+      $perfil->password = Hash::make($request->get('contrasenya'));
+      $perfil->codi_postal = $request->get('codi_postal');
+
+       
+
+      $perfil->update();
+
+      return redirect('views/perfil')->with('info', 'Perfil actualitzat correctament');
     }
 
     public function destroy($id)
