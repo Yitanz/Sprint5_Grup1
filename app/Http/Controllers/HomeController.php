@@ -32,7 +32,7 @@ use \App\Linia_contacte;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Crear una nova instancia de controlador
      *
      * @return void
      */
@@ -43,7 +43,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Mostrar el panel de l'aplicatiu
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -334,9 +334,6 @@ class HomeController extends Controller
         $linia_venta ->save();
         $linia_cistella_element = Linia_cistella::find($element_cistella->id_linia);
         $linia_cistella_element->delete();
-        /*DB::table('linia_ventes')->insert([
-            ['id_venta' => $venta->id, 'producte' => $element_cistella->producte, 'quantitat' => $element_cistella->quantitat]
-        ]);*/
       }
 
       return view("/compra_finalitzada");
@@ -448,7 +445,6 @@ class HomeController extends Controller
           }
         })
 
-        //$noticies->where('categories.id', '=', $cat);
         ->paginate(8);
       return view('noticies', compact('noticies'));
     }
@@ -511,11 +507,6 @@ class HomeController extends Controller
 
           return redirect('/votacions')->with('info', 'Votació realitzada correctament');
 
-          /*$atraccions = json_encode(DB::table('atraccions')
-            ->select('atraccions.id as id', 'atraccions.nom_atraccio as title', 'atraccions.descripcio as description', 'atraccions.path as url', 'atraccions.votacions as votes', 'atraccions.path as avatar', 'atraccions.path as submissionImage')
-            ->orderBy('id', 'DESC')
-            ->get());
-            return view('votacions', compact('atraccions'));*/
         }
       }else{
         return redirect('/votacions')->with('error', 'És necessari iniciar sessió per votar.');
