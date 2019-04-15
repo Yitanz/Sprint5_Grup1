@@ -12,6 +12,8 @@ use \App\Venta_productes;
 use \App\producte;
 use \App\Atributs_producte;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Validator as LaravelValidator;
+use Validator;
 class PerfilController extends Controller
 {
     /**
@@ -97,14 +99,38 @@ class PerfilController extends Controller
       $perfil->adreca = $request->get('adreca');
       $perfil->ciutat = $request->get('ciutat');
       $perfil->provincia = $request->get('provincia');
-      $perfil->password = Hash::make($request->get('contrasenya'));
+      $perfil->password = Hash::make($request->get('password'));
       $perfil->codi_postal = $request->get('codi_postal');
 
-       
+
 
       $perfil->update();
 
       return redirect('views/perfil')->with('info', 'Perfil actualitzat correctament');
+    }
+
+    public function contrasenyaView()
+    {
+      return view('/password/edit');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request-> validate([
+          'password_old' => 'required',
+          'password'=> 'required|confirmed|min:6',
+          'password_confirmation' => 'required'
+        ]);
+        $user = User::find(Auth::id());
+        if (Hash::check($request->get('password_old'), Auth::user()->password)) {
+
+        $user->password = Hash::make($request->get('password'));
+
+        $user->update();
+      }
+      else return redirect('views/password')->with('error', 'Error: Introdueix la contrasenya correcta');
+
+      return redirect('views/perfil')->with('info', 'Contrasenya actualitzada correctament');
     }
 
     public function destroy($id)
@@ -115,4 +141,5 @@ class PerfilController extends Controller
       Auth::logout();
       return redirect('/');
     }
+
 }

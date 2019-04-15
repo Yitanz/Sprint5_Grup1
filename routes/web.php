@@ -78,6 +78,10 @@
 
  Route::patch('/tasques/{id}', 'IncidenciesController@conclude')->name('incidencies.conclude')->middleware(['auth','is_worker','verified']);
 
+ Route::get('views/password',"PerfilController@contrasenyaView")->name('password');
+
+ Route::post('views/password',"PerfilController@updatePassword")->name('updatePassword');
+
  Route::resource('views/perfil', 'PerfilController')->middleware(['auth','is_admin','verified']);
 
  Route::post('views/perfil/{id}','PerfilController@update');

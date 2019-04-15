@@ -1,3 +1,10 @@
+@extends("layouts.plantilla")
+
+@section("menu1")
+@endsection
+@section("menu2")
+@endsection
+@section("content")
 <html lang="es">
 
 <head>
@@ -79,33 +86,6 @@
                                         <strong>{{ $errors->first('cognom2') }}</strong>
                                     </span>
                                     @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-sm-4 col-form-label text-sm-right font-weight-bold">{{
-                                    __('Contrasenya')
-                                    }}</label>
-
-                                <div class="col-sm-6">
-                                    <input  type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                        name="password" placeholder="Mínim de 6 caràcters" required>
-
-                                    @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm" class="col-sm-4 col-form-label text-sm-right font-weight-bold">{{
-                                    __('Confirmar contrasenya') }}</label>
-
-                                <div class="col-sm-6">
-                                    <input  type="password" class="form-control" name="password_confirmation"
-                                        required>
                                 </div>
                             </div>
 
@@ -195,7 +175,13 @@
                                     <button type="submit" class="btn btn-success" onclick="regexDNI()">
                                         {{ __('Modificar') }}
                                     </button>
+                                    <div>
+                                    <a class="btn btn-primary"
+                                        href="{{ route('password', Auth::user()->id) }}">Modificar Contrasenya</a>
+                                      </div>
                                 </div>
+
+
                             </div>
 
                         </form>
@@ -222,3 +208,6 @@
   }
 
 </script>
+@endsection
+@section("footer")
+@endsection
