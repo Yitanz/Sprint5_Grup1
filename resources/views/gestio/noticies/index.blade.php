@@ -23,6 +23,7 @@
     <h1 class="h2">Gestionar notícies</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
+          <form action="{{action('NoticiesController@guardarPDF')}}">
             <button class="btn btn-sm btn-outline-secondary" value="Exportar">
                 <span data-feather="save"></span>
                 Exportar PDF

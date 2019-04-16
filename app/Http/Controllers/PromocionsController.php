@@ -10,8 +10,9 @@ use Storage;
 use File;
 use Auth;
 use View;
-
-
+use Image;
+use PDF;
+use Carbon;
 use \App\Promocions;
 
 class PromocionsController extends Controller
@@ -143,5 +144,21 @@ class PromocionsController extends Controller
       $promocio = Promocions::find($id);
       $promocio->delete();
       return redirect('/gestio/promocions') ->with('info', 'Promoció eliminada');
+    }
+
+    public function guardarPDF()
+    {
+      $promocions = Promocions::join('users', 'users.id', '=', 'promocions.id_usuari')
+        ->select('promocions.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
+
+        $mytime = Carbon\Carbon::now();
+        $temps = $mytime->toDateString();
+
+        $prom = Promocions::all();
+        $pdf = PDF::loadView('/gestio/promocions/pdf', compact('promocions'));
+        return $pdf->download('prom'.$temps.'.pdf');
+
     }
 }

@@ -9,7 +9,10 @@ use \App\Servei;
 use \App\User;
 use \App\ServeisZones;
 use \App\GestioServei;
-
+use Illuminate\Support\Facades\File;
+use Image;
+use PDF;
+use Carbon;
 class GestioServeisController extends Controller
 {
     /**
@@ -108,5 +111,18 @@ class GestioServeisController extends Controller
       $servei->delete();
 
       return redirect('/gestio/GestioServeis')->with('info', 'Servei eliminat.');
+    }
+
+    public function guardarPDF()
+    {
+        $serveis = GestioServei::all();
+
+        $mytime = Carbon\Carbon::now();
+        $temps = $mytime->toDateString();
+
+        $serv = GestioServei::all();
+        $pdf = PDF::loadView('/gestio/GestioServeis/pdf', compact('serveis'));
+        return $pdf->download('serv'.$temps.'.pdf');
+
     }
 }

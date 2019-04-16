@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 use \App\User;
 use \App\Zona;
 use \App\AssignEmpZona;
-
+use Illuminate\Support\Facades\File;
+use Image;
+use PDF;
+use Carbon;
 class AssignEmpZonaController extends Controller
 {
   /**
@@ -144,5 +147,26 @@ class AssignEmpZonaController extends Controller
     $assig->delete();
 
     return redirect('gestio/AssignEmpZona')->with('info', 'Assignació eliminada correctament');
+  }
+
+  public function guardarPDF()
+  {
+    $assignacions = AssignEmpZona::join ('zones','empleat_zona.id_zona', '=', 'zones.id')
+    ->join('users', 'empleat_zona.id_empleat', '=', 'users.id')
+    ->get ([
+      'empleat_zona.id as id',
+      'zones.nom as nom_zona',
+      'users.nom as nom_empleat',
+      'empleat_zona.data_inici as data_inici',
+      'empleat_zona.data_fi as data_fi'
+    ]);
+
+      $mytime = Carbon\Carbon::now();
+      $temps = $mytime->toDateString();
+
+      $assign = AssignEmpZona::all();
+      $pdf = PDF::loadView('/gestio/AssignEmpZona/pdf', compact('assignacions'));
+      return $pdf->download('assign'.$temps.'.pdf');
+
   }
 }

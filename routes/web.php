@@ -123,6 +123,18 @@
  /* Guardar PDF */
  Route::get('/view/atraccions/index', 'AtraccionsController@guardarPDF');
 
+ Route::get('/view/AssignEmpZona/index', 'AssignEmpZonaController@guardarPDF');
+
+ Route::get('/view/GestioServeis/index', 'GestioServeisController@guardarPDF');
+
+ Route::get('/view/noticies/index', 'NoticiesController@guardarPDF');
+
+ Route::get('/view/promocions/index', 'PromocionsController@guardarPDF');
+
+ Route::get('/view/serveis/index', 'ServeisController@guardarPDF');
+
+ Route::get('/view/ServeisDesactivats/index', 'ServeisDesactivats@guardarPDF');
+
  /* Gestio imatges */
  Route::get("/gestio/imatges", "ImageController@create")->name('imatges.create')->middleware(['auth','is_admin','verified']);
  Route::post("/gestio/imatges/save", "ImageController@save")->name('imatges.save')->middleware(['auth','is_admin','verified']);

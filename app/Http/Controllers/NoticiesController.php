@@ -11,11 +11,11 @@ use Storage;
 use File;
 use Auth;
 use View;
-
-
+use Image;
+use PDF;
 use \App\noticies;
 use \App\categories;
-
+use Carbon;
 class NoticiesController extends Controller
 {
     /**
@@ -151,5 +151,23 @@ class NoticiesController extends Controller
       $noticia = noticies::find($id);
       $noticia->delete();
       return redirect('/gestio/noticies') ->with('info', 'Noticia eliminada correctament');
+    }
+
+    public function guardarPDF()
+    {
+      $noticies = DB::table('noticies')
+        ->join('users', 'users.id', '=', 'noticies.id_usuari')
+        ->join('categories', 'categories.id', '=', 'noticies.categoria')
+        ->select('noticies.id', 'titol', 'descripcio', 'users.nom', 'users.cognom1', 'users.cognom2', 'users.numero_document', 'path_img', 'categories.nom as categoria')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
+
+        $mytime = Carbon\Carbon::now();
+        $temps = $mytime->toDateString();
+
+        $noti = noticies::all();
+        $pdf = PDF::loadView('/gestio/noticies/pdf', compact('noticies'));
+        return $pdf->download('noti'.$temps.'.pdf');
+
     }
 }
